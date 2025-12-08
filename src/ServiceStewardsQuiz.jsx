@@ -97,7 +97,7 @@ const ServiceStewardsQuiz = () => {
                 { text: "I try to help where I can make the biggest long-term difference.", archetype: "Practical Helper" },
                 { text: "I support those who are also working to grow.", archetype: "Virtue Builder" },
                 { text: "I focus on whoever needs help most urgently.", archetype: "Agape Giver" },
-                { text: "I pause and make sure I'm not stepping in as a \"savior.\"", archetype: "Skeptical Servant" }
+                { text: "I pause and make sure I'm not stepping in as a savior.", archetype: "Skeptical Servant" }
             ]
         },
         {
@@ -1457,7 +1457,7 @@ const ServiceStewardsQuiz = () => {
                                                     onClick={handleBundlePurchase}
                                                     className="inline-flex flex-col items-center justify-center px-6 py-3 rounded-full font-semibold text-center transition-all duration-200 bg-[#12C4A4] text-white border-2 border-[#12C4A4] hover:bg-[#0fa28a] hover:border-[#0fa28a] shadow-sm hover:shadow-md"
                                                 >
-                                                    <span className="text-[0.95rem] leading-tight">Deep Dive + All 8 Summaries</span>
+                                                    <span className="text-[0.95rem] leading-tight">Profile Deep Dive + All Summaries Booklet</span>
                                                     <span className="text-[0.9rem] opacity-90 mt-1 font-normal">Best value – ${BUNDLE_PRICE}</span>
                                                 </button>
 
