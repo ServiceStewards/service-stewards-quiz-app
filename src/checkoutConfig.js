@@ -1,11 +1,11 @@
 // Checkout URL Configuration
-// TODO: Replace these empty strings with actual Systeme.io checkout URLs when available
+
 
 export const DEEP_DIVE_ONLY_CHECKOUT_BASE = 
-  ""; // Paste Deep Dive Only checkout URL here when ready
+  "https://www.servicestewards.com/checkout-deep-dive"; 
 
 export const DEEP_DIVE_BUNDLE_CHECKOUT_BASE = 
-  ""; // Paste Deep Dive + All 8 Summaries checkout URL here when ready
+  "https://www.servicestewards.com/checkout-profile-bundle"; 
 
 /**
  * Builds a complete checkout URL with profile slug parameter

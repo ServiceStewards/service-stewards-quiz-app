@@ -52,8 +52,8 @@ const ServiceStewardsQuiz = () => {
     };
 
 
-    const DEEP_DIVE_PRICE = 12;   // USD
-    const BUNDLE_PRICE = 17;      // USD
+    const DEEP_DIVE_PRICE = 14;   // USD
+    const BUNDLE_PRICE = 20;      // USD
     // END: PROFILE DATA FOR CHECKOUT
 
     // START: QUIZ DATA SETUP
@@ -1244,8 +1244,8 @@ const ServiceStewardsQuiz = () => {
                                                 <div className="w-3/4">
 
                                                     <p className={`opacity-95 leading-relaxed text-left ${topResult.isTie && topResult.tiedWith && topResult.tiedWith.length === 1
-                                                            ? 'text-base'
-                                                            : 'text-sm'
+                                                        ? 'text-base'
+                                                        : 'text-sm'
                                                         }`}>
                                                         {topResult.isTie && topResult.tiedWith && topResult.tiedWith.length === 1 ? (
                                                             // 2-way tie description
@@ -1458,7 +1458,7 @@ const ServiceStewardsQuiz = () => {
                                                     className="inline-flex flex-col items-center justify-center px-6 py-3 rounded-full font-semibold text-center transition-all duration-200 bg-[#12C4A4] text-white border-2 border-[#12C4A4] hover:bg-[#0fa28a] hover:border-[#0fa28a] shadow-sm hover:shadow-md"
                                                 >
                                                     <span className="text-[0.95rem] leading-tight">Profile Deep Dive + All Summaries Booklet</span>
-                                                    <span className="text-[0.9rem] opacity-90 mt-1 font-normal">Best value – ${BUNDLE_PRICE}</span>
+                                                    <span className="text-[0.9rem] opacity-90 mt-1 font-normal">${BUNDLE_PRICE} — Save $10</span>
                                                 </button>
 
                                                 {/* Secondary: Deep Dive Only Button */}
@@ -1467,7 +1467,7 @@ const ServiceStewardsQuiz = () => {
                                                     className="inline-flex flex-col items-center justify-center px-6 py-3 rounded-full font-semibold text-center transition-all duration-200 bg-white text-[#12C4A4] border-2 border-[#12C4A4] hover:bg-[#e6f7f4] shadow-sm hover:shadow-md"
                                                 >
                                                     <span className="text-[0.95rem] leading-tight">Deep Dive Guide Only</span>
-                                                    <span className="text-[0.875rem] opacity-85 mt-1 font-normal">Just the essentials – ${DEEP_DIVE_PRICE}</span>
+                                                    <span className="text-[0.875rem] opacity-85 mt-1 font-normal">${DEEP_DIVE_PRICE}</span>
                                                 </button>
                                             </div>
                                         </div>
