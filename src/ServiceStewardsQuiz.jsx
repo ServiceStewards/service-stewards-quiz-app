@@ -6,6 +6,20 @@ import {
     buildCheckoutUrl
 } from './checkoutConfig';
 
+
+// -------------------------------
+// Thumbnail preview image URLs
+// -------------------------------
+const TOP_RESULT_PREVIEW_URL =
+    "https://raw.githubusercontent.com/ServiceStewards/service-stewards-quiz-assets/1a0ba83c357ee376b530e778e06e21d8d82140ac/top-result-example.png";
+
+const BREAKDOWN_PREVIEW_URL =
+    "https://raw.githubusercontent.com/ServiceStewards/service-stewards-quiz-assets/1a0ba83c357ee376b530e778e06e21d8d82140ac/full-breakdown-example.png";
+// (Replace with your actual breakdown-example raw URL when ready)
+
+// -------------------------------
+
+
 const ServiceStewardsQuiz = () => {
     // START: PROFILE DATA FOR CHECKOUT
     const profileData = {
@@ -1108,19 +1122,37 @@ const ServiceStewardsQuiz = () => {
                                     </p>
                                 </div>
 
-                                {/* Download link - only show for 1-2 way ties */}
+                                {/* Download link + tiny preview - only show for 1-2 way ties */}
                                 {!isMultiTie && (
-                                    <div className="text-center mb-6">
-                                        <button
-                                            onClick={() => generateShareImage(topResult)}
-                                            className="text-[#12C4A4] hover:text-[#0fa890] font-medium text-sm underline decoration-dotted underline-offset-4 inline-flex items-center gap-1 transition-colors"
-                                        >
-                                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                                            </svg>
-                                            Download & share your result (free)
-                                        </button>
-                                    </div>
+                                    <>
+                                        <div className="text-center mb-3">
+                                            <button
+                                                onClick={() => generateShareImage(topResult)}
+                                                className="text-[#12C4A4] hover:text-[#0fa890] font-medium text-sm underline decoration-dotted underline-offset-4 inline-flex items-center gap-1 transition-colors"
+                                            >
+                                                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                                                </svg>
+                                                Download customized image & share your result (free)
+                                            </button>
+                                        </div>
+
+                                        {/* tiny thumbnail preview */}
+                                        <div className="text-center mb-4 opacity-80">
+                                            <img
+                                                src={TOP_RESULT_PREVIEW_URL}
+                                                alt="Example top result summary"
+                                                style={{
+                                                    maxHeight: '80px',
+                                                    width: 'auto',
+                                                    height: '80px',
+                                                    borderRadius: '4px',
+                                                    margin: '0 auto',
+                                                    display: 'block'
+                                                }}
+                                            />
+                                        </div>
+                                    </>
                                 )}
 
                                 {/* Results Breakdown Button */}
@@ -1495,10 +1527,25 @@ const ServiceStewardsQuiz = () => {
                                         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                                         </svg>
-                                        Download Your Complete Breakdown (free)
+                                        Download Image of Your Complete Breakdown (free)
                                     </button>
                                 </div>
 
+                                {/* tiny preview for full breakdown */}
+                                <div className="text-center mb-6 opacity-80">
+                                    <img
+                                        src={BREAKDOWN_PREVIEW_URL}
+                                        alt="Example full breakdown summary"
+                                        style={{
+                                            maxHeight: '80px',
+                                            width: 'auto',
+                                            height: '80px',
+                                            borderRadius: '4px',
+                                            margin: '0 auto',
+                                            display: 'block'
+                                        }}
+                                    />
+                                </div>
 
                                 <h3 className="text-2xl font-semibold text-gray-800 mb-6 flex items-center justify-center">
                                     <BarChart3 className="w-6 h-6 mr-2" />
