@@ -1490,7 +1490,7 @@ const ServiceStewardsQuiz = () => {
                                                     className="inline-flex flex-col items-center justify-center px-6 py-3 rounded-full font-semibold text-center transition-all duration-200 bg-[#12C4A4] text-white border-2 border-[#12C4A4] hover:bg-[#0fa28a] hover:border-[#0fa28a] shadow-sm hover:shadow-md"
                                                 >
                                                     <span className="text-[0.95rem] leading-tight">Profile Deep Dive + All Summaries Booklet</span>
-                                                    <span className="text-[0.9rem] opacity-90 mt-1 font-normal">${BUNDLE_PRICE} — Save $10 when you bundle</span>
+                                                    <span className="text-[0.9rem] opacity-90 mt-1 font-normal">${BUNDLE_PRICE} — $10 savings bundle</span>
                                                 </button>
 
                                                 {/* Secondary: Deep Dive Only Button */}
