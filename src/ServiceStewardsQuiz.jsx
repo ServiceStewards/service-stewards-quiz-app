@@ -1514,7 +1514,7 @@ const ServiceStewardsQuiz = () => {
                                 {/* Important message about saving results */}
                                 <div className="text-center mb-4 max-w-2xl mx-auto px-4">
                                     <p className="text-gray-700 text-sm">
-                                        Be sure to download or screenshot this chart now—this page isn't saved, and we can't recreate your breakdown results later.
+                                        Be sure to download image or screenshot this chart now—this page isn't saved and we can't recreate your breakdown results later.
                                     </p>
                                 </div>
 
