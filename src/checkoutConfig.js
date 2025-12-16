@@ -1,27 +1,12 @@
-// Checkout URL Configuration
+// Checkout URL Configuration - Direct Deep Dive URLs
 
-
-export const DEEP_DIVE_ONLY_CHECKOUT_BASE = 
-  "https://www.servicestewards.com/checkout-deep-dive"; 
-
-export const DEEP_DIVE_BUNDLE_CHECKOUT_BASE = 
-  "https://www.servicestewards.com/checkout-profile-bundle"; 
-
-/**
- * Builds a complete checkout URL with profile slug parameter
- * @param {string} baseUrl - The base checkout URL from Systeme.io
- * @param {string} profileSlug - The profile slug (e.g., "agape-giver")
- * @returns {string} Complete checkout URL or empty string if not configured
- */
-export function buildCheckoutUrl(baseUrl, profileSlug) {
-  // Return empty if either parameter is missing
-  if (!baseUrl || !profileSlug) {
-    return "";
-  }
-
-  // Determine if we need ? or & for the query parameter
-  const separator = baseUrl.includes("?") ? "&" : "?";
-  
-  // Build and return the complete URL
-  return `${baseUrl}${separator}profile=${encodeURIComponent(profileSlug)}`;
-}
+export const CHECKOUT_URLS = {
+  "Agape Giver": "https://www.servicestewards.com/1ea2ddfe",
+  "Compassionate Witness": "https://www.servicestewards.com/004da8da",
+  "Mutual Partner": "https://www.servicestewards.com/85918b03",
+  "Practical Helper": "https://www.servicestewards.com/698c1ec1",
+  "Principled Giver": "https://www.servicestewards.com/27e645fd",
+  "Sacred Listener": "https://www.servicestewards.com/173db6a2",
+  "Skeptical Servant": "https://www.servicestewards.com/e38ea05b",
+  "Virtue Builder": "https://www.servicestewards.com/bd01fe5a"
+};

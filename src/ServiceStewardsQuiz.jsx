@@ -1,10 +1,6 @@
 import React, { useState } from 'react';
 import { ChevronRight, BarChart3, Lock } from 'lucide-react'; // Keep these UI icons
-import {
-    DEEP_DIVE_ONLY_CHECKOUT_BASE,
-    DEEP_DIVE_BUNDLE_CHECKOUT_BASE,
-    buildCheckoutUrl
-} from './checkoutConfig';
+import { CHECKOUT_URLS } from './checkoutConfig';
 
 
 // -------------------------------
@@ -66,8 +62,6 @@ const ServiceStewardsQuiz = () => {
     };
 
 
-    const DEEP_DIVE_PRICE = 14;   // USD
-    const BUNDLE_PRICE = 20;      // USD
     // END: PROFILE DATA FOR CHECKOUT
 
     // START: QUIZ DATA SETUP
@@ -1214,6 +1208,7 @@ const ServiceStewardsQuiz = () => {
             );
         }
 
+
         // FULL BREAKDOWN PAGE (Premium view)
         if (isPremium) {
             // Check if tied for 3+ archetypes
@@ -1231,160 +1226,178 @@ const ServiceStewardsQuiz = () => {
                                 </div>
 
                                 {/* Primary Archetype Result */}
-                                <div
-                                    className="rounded-lg p-6 mb-6"
-                                    style={{
-                                        backgroundColor: isMultiTie ? '#D1A247' : (topResult.isTie && topResult.tiedWith && topResult.tiedWith.length === 1 ? 'white' : archetypes[topResult.name].color),
-                                        background: isMultiTie
-                                            ? 'linear-gradient(135deg, #D1A247, #c9984a)'
-                                            : (topResult.isTie && topResult.tiedWith && topResult.tiedWith.length === 1
-                                                ? 'white'
-                                                : `linear-gradient(135deg, ${archetypes[topResult.name].color}, ${archetypes[topResult.name].color}dd)`),
-                                        border: (topResult.isTie && topResult.tiedWith && topResult.tiedWith.length === 1) ? '4px solid #D1A247' : 'none',
-                                        color: (topResult.isTie && topResult.tiedWith && topResult.tiedWith.length === 1) ? '#4d4637' : 'white'
-                                    }}
-                                >
-                                    {isMultiTie ? (
-                                        // 3+ way tie - keep centered layout
-                                        <>
-                                            <h2 className="text-2xl font-bold mb-4 text-center">Your Service Style Results</h2>
-                                            <p className="text-lg opacity-95 leading-relaxed text-center">
-                                                Your results show a strong blend across several Service Styles.
-                                                This can happen when strengths overlap or when the quiz is completed quickly.
-                                            </p>
-                                        </>
-                                    ) : (
-                                        // Single or 2-way tie - use column layout
-                                        <>
-                                            <h2 className="text-3xl font-bold mb-4 text-center">
-                                                {topResult.isTie && topResult.tiedWith && topResult.tiedWith.length === 1 ? (
-                                                    <>
-                                                        <span style={{ color: archetypes[topResult.name].color }}>{topResult.name}</span>
-                                                        <span> & </span>
-                                                        <span style={{ color: archetypes[topResult.tiedWith[0]].color }}>{topResult.tiedWith[0]}</span>
-                                                    </>
-                                                ) : (
-                                                    topResult.name
-                                                )}
-                                            </h2>
+                                {!(topResult.isTie && topResult.tiedWith && topResult.tiedWith.length === 1) && (
+                                    <div
+                                        className="rounded-lg p-6 mb-6"
+                                        style={{
+                                            backgroundColor: isMultiTie ? '#D1A247' : archetypes[topResult.name].color,
+                                            background: isMultiTie
+                                                ? 'linear-gradient(135deg, #D1A247, #c9984a)'
+                                                : `linear-gradient(135deg, ${archetypes[topResult.name].color}, ${archetypes[topResult.name].color}dd)`,
+                                            color: 'white'
+                                        }}
+                                    >
+                                        {isMultiTie ? (
+                                            // 3+ way tie - keep centered layout
+                                            <>
+                                                <h2 className="text-2xl font-bold mb-4 text-center">Your Service Style Results</h2>
+                                                <p className="text-lg opacity-95 leading-relaxed text-center">
+                                                    Your results show a strong blend across several Service Styles.
+                                                    This can happen when strengths overlap or when the quiz is completed quickly.
+                                                </p>
+                                            </>
+                                        ) : (
+                                            // Single winner - use column layout
+                                            <>
+                                                <h2 className="text-3xl font-bold mb-4 text-center">{topResult.name}</h2>
 
-                                            <div className="flex gap-6 items-center">
-                                                {/* Left column - Icons (25% width) */}
-                                                <div className="w-1/4 flex flex-col items-center justify-center gap-4 py-2">
-                                                    {topResult.isTie && topResult.tiedWith && topResult.tiedWith.length === 1 ? (
-                                                        // 2-way tie: Colored icons
-                                                        <>
-                                                            <div style={{
-                                                                WebkitMaskImage: `url(${topIconUrl})`,
-                                                                WebkitMaskRepeat: 'no-repeat',
-                                                                WebkitMaskSize: 'contain',
-                                                                WebkitMaskPosition: 'center',
-                                                                maskImage: `url(${topIconUrl})`,
-                                                                maskRepeat: 'no-repeat',
-                                                                maskSize: 'contain',
-                                                                maskPosition: 'center',
-                                                                backgroundColor: archetypes[topResult.name].color
-                                                            }} className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32" />
-
-                                                            <div style={{
-                                                                WebkitMaskImage: `url(${archetypes[topResult.tiedWith[0]].iconUrl})`,
-                                                                WebkitMaskRepeat: 'no-repeat',
-                                                                WebkitMaskSize: 'contain',
-                                                                WebkitMaskPosition: 'center',
-                                                                maskImage: `url(${archetypes[topResult.tiedWith[0]].iconUrl})`,
-                                                                maskRepeat: 'no-repeat',
-                                                                maskSize: 'contain',
-                                                                maskPosition: 'center',
-                                                                backgroundColor: archetypes[topResult.tiedWith[0]].color
-                                                            }} className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32" />
-                                                        </>
-                                                    ) : (
-                                                        // Single result: White icon
+                                                <div className="flex gap-6 items-start">
+                                                    {/* Left column - Icon */}
+                                                    <div className="w-14 sm:w-16 md:w-20 flex flex-col items-center justify-center gap-2 py-2">
                                                         <img
                                                             src={topIconUrl}
                                                             alt={topResult.name}
                                                             className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32"
                                                             style={{ filter: 'brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(200%) contrast(100%)' }}
                                                         />
-                                                    )}
+                                                    </div>
+
+                                                    {/* Vertical dotted separator */}
+                                                    <div className="border-l border-dotted border-white/40 self-stretch"></div>
+
+                                                    {/* Right column - Text */}
+                                                    <div className="w-3/4">
+                                                        <p className="text-sm opacity-95 leading-relaxed text-left">
+                                                            As a <strong>{topResult.name}</strong>, you {(() => {
+                                                                const strengthsMap = {
+                                                                    'Agape Giver': { main: 'show up when people are hurting with steady, dependable care', secondary: 'keep walking with people through challenges instead of stepping back' },
+                                                                    'Compassionate Witness': { main: 'notice the emotions beneath the surface and respond with genuine empathy', secondary: 'help people feel understood and less alone in what they\'re carrying' },
+                                                                    'Mutual Partner': { main: 'work side-by-side with people and treat their perspective as essential', secondary: 'create solutions together that strengthen trust and connection' },
+                                                                    'Practical Helper': { main: 'spot what will make the biggest real-world difference right now', secondary: 'turn needs into practical steps that bring immediate stability' },
+                                                                    'Principled Giver': { main: 'act from steady internal convictions even when situations feel unclear', secondary: 'offer help that aligns with fairness, responsibility, and long-term good' },
+                                                                    'Sacred Listener': { main: 'create a safe space where people feel deeply seen and heard', secondary: 'listen without judgment or hurry, allowing people to find their own clarity' },
+                                                                    'Skeptical Servant': { main: 'ask honest questions that reveal what\'s real beneath the surface', secondary: 'cut through confusion to understand the situation before taking action' },
+                                                                    'Virtue Builder': { main: 'spot people\'s potential and encourage their growth with sincerity', secondary: 'help people rise to challenges by offering steady support and belief in them' }
+                                                                };
+                                                                return strengthsMap[topResult.name].main;
+                                                            })()} and {(() => {
+                                                                const strengthsMap = {
+                                                                    'Agape Giver': { main: 'show up when people are hurting with steady, dependable care', secondary: 'keep walking with people through challenges instead of stepping back' },
+                                                                    'Compassionate Witness': { main: 'notice the emotions beneath the surface and respond with genuine empathy', secondary: 'help people feel understood and less alone in what they\'re carrying' },
+                                                                    'Mutual Partner': { main: 'work side-by-side with people and treat their perspective as essential', secondary: 'create solutions together that strengthen trust and connection' },
+                                                                    'Practical Helper': { main: 'spot what will make the biggest real-world difference right now', secondary: 'turn needs into practical steps that bring immediate stability' },
+                                                                    'Principled Giver': { main: 'act from steady internal convictions even when situations feel unclear', secondary: 'offer help that aligns with fairness, responsibility, and long-term good' },
+                                                                    'Sacred Listener': { main: 'create a safe space where people feel deeply seen and heard', secondary: 'listen without judgment or hurry, allowing people to find their own clarity' },
+                                                                    'Skeptical Servant': { main: 'ask honest questions that reveal what\'s real beneath the surface', secondary: 'cut through confusion to understand the situation before taking action' },
+                                                                    'Virtue Builder': { main: 'spot people\'s potential and encourage their growth with sincerity', secondary: 'help people rise to challenges by offering steady support and belief in them' }
+                                                                };
+                                                                return strengthsMap[topResult.name].secondary;
+                                                            })()}. This combination shapes how you naturally show up in service and how others experience your support. Your profile summary and deep dive guides go deeper into how this shows up in real-life situations — and how to use your strengths with confidence.
+                                                        </p>
+                                                    </div>
                                                 </div>
+                                            </>
+                                        )}
+                                    </div>
+                                )}
 
-                                                {/* Vertical dotted separator */}
-                                                <div className="border-l border-dotted border-white/40 self-stretch"></div>
+                                {/* 2-way tie - mini cards layout (outside the main colored box) */}
+                                {topResult.isTie && topResult.tiedWith && topResult.tiedWith.length === 1 && (
+                                    <div className="mb-6">
+                                        {(() => {
+                                            const strengthsMap = {
+                                                'Agape Giver': { main: 'show up when people are hurting with steady, dependable care' },
+                                                'Compassionate Witness': { main: 'notice the emotions beneath the surface and respond with genuine empathy' },
+                                                'Mutual Partner': { main: 'work side-by-side with people and treat their perspective as essential' },
+                                                'Practical Helper': { main: 'spot what will make the biggest real-world difference right now' },
+                                                'Principled Giver': { main: 'act from steady internal convictions even when situations feel unclear' },
+                                                'Sacred Listener': { main: 'create a safe space where people feel deeply seen and heard' },
+                                                'Skeptical Servant': { main: "ask honest questions that reveal what's real beneath the surface" },
+                                                'Virtue Builder': { main: "spot people's potential and encourage their growth with sincerity" }
+                                            };
 
-                                                {/* Right column - Text (75% width) */}
-                                                <div className="w-3/4">
+                                            const nameA = topResult.name;
+                                            const nameB = topResult.tiedWith[0];
+                                            const iconA = topIconUrl;
+                                            const iconB = archetypes[nameB].iconUrl;
 
-                                                    <p className={`opacity-95 leading-relaxed text-left ${topResult.isTie && topResult.tiedWith && topResult.tiedWith.length === 1
-                                                        ? 'text-base'
-                                                        : 'text-sm'
-                                                        }`}>
-                                                        {topResult.isTie && topResult.tiedWith && topResult.tiedWith.length === 1 ? (
-                                                            // 2-way tie description
-                                                            <>
-                                                                Your top two styles — <strong>{topResult.name}</strong> and <strong>{topResult.tiedWith[0]}</strong> — both show up strongly in your results. You {(() => {
-                                                                    const strengthsMap = {
-                                                                        'Agape Giver': { main: 'show up when people are hurting with steady, dependable care' },
-                                                                        'Compassionate Witness': { main: 'notice the emotions beneath the surface and respond with genuine empathy' },
-                                                                        'Mutual Partner': { main: 'work side-by-side with people and treat their perspective as essential' },
-                                                                        'Practical Helper': { main: 'spot what will make the biggest real-world difference right now' },
-                                                                        'Principled Giver': { main: 'act from steady internal convictions even when situations feel unclear' },
-                                                                        'Sacred Listener': { main: 'create a safe space where people feel deeply seen and heard' },
-                                                                        'Skeptical Servant': { main: 'ask honest questions that reveal what\'s real beneath the surface' },
-                                                                        'Virtue Builder': { main: 'spot people\'s potential and encourage their growth with sincerity' }
-                                                                    };
-                                                                    return strengthsMap[topResult.name].main;
-                                                                })()} and you also {(() => {
-                                                                    const strengthsMap = {
-                                                                        'Agape Giver': { main: 'show up when people are hurting with steady, dependable care' },
-                                                                        'Compassionate Witness': { main: 'notice the emotions beneath the surface and respond with genuine empathy' },
-                                                                        'Mutual Partner': { main: 'work side-by-side with people and treat their perspective as essential' },
-                                                                        'Practical Helper': { main: 'spot what will make the biggest real-world difference right now' },
-                                                                        'Principled Giver': { main: 'act from steady internal convictions even when situations feel unclear' },
-                                                                        'Sacred Listener': { main: 'create a safe space where people feel deeply seen and heard' },
-                                                                        'Skeptical Servant': { main: 'ask honest questions that reveal what\'s real beneath the surface' },
-                                                                        'Virtue Builder': { main: 'spot people\'s potential and encourage their growth with sincerity' }
-                                                                    };
-                                                                    return strengthsMap[topResult.tiedWith[0]].main;
-                                                                })()}. Your full results explain how each of these strengths plays out in real-life situations — and help you choose which style to explore first.
-                                                            </>
-                                                        ) : (
-                                                            // Single winner description
-                                                            <>
-                                                                As a <strong>{topResult.name}</strong>, you {(() => {
-                                                                    const strengthsMap = {
-                                                                        'Agape Giver': { main: 'show up when people are hurting with steady, dependable care', secondary: 'keep walking with people through challenges instead of stepping back' },
-                                                                        'Compassionate Witness': { main: 'notice the emotions beneath the surface and respond with genuine empathy', secondary: 'help people feel understood and less alone in what they\'re carrying' },
-                                                                        'Mutual Partner': { main: 'work side-by-side with people and treat their perspective as essential', secondary: 'create solutions together that strengthen trust and connection' },
-                                                                        'Practical Helper': { main: 'spot what will make the biggest real-world difference right now', secondary: 'turn needs into practical steps that bring immediate stability' },
-                                                                        'Principled Giver': { main: 'act from steady internal convictions even when situations feel unclear', secondary: 'offer help that aligns with fairness, responsibility, and long-term good' },
-                                                                        'Sacred Listener': { main: 'create a safe space where people feel deeply seen and heard', secondary: 'listen without judgment or hurry, allowing people to find their own clarity' },
-                                                                        'Skeptical Servant': { main: 'ask honest questions that reveal what\'s real beneath the surface', secondary: 'cut through confusion to understand the situation before taking action' },
-                                                                        'Virtue Builder': { main: 'spot people\'s potential and encourage their growth with sincerity', secondary: 'help people rise to challenges by offering steady support and belief in them' }
-                                                                    };
-                                                                    return strengthsMap[topResult.name].main;
-                                                                })()} and {(() => {
-                                                                    const strengthsMap = {
-                                                                        'Agape Giver': { main: 'show up when people are hurting with steady, dependable care', secondary: 'keep walking with people through challenges instead of stepping back' },
-                                                                        'Compassionate Witness': { main: 'notice the emotions beneath the surface and respond with genuine empathy', secondary: 'help people feel understood and less alone in what they\'re carrying' },
-                                                                        'Mutual Partner': { main: 'work side-by-side with people and treat their perspective as essential', secondary: 'create solutions together that strengthen trust and connection' },
-                                                                        'Practical Helper': { main: 'spot what will make the biggest real-world difference right now', secondary: 'turn needs into practical steps that bring immediate stability' },
-                                                                        'Principled Giver': { main: 'act from steady internal convictions even when situations feel unclear', secondary: 'offer help that aligns with fairness, responsibility, and long-term good' },
-                                                                        'Sacred Listener': { main: 'create a safe space where people feel deeply seen and heard', secondary: 'listen without judgment or hurry, allowing people to find their own clarity' },
-                                                                        'Skeptical Servant': { main: 'ask honest questions that reveal what\'s real beneath the surface', secondary: 'cut through confusion to understand the situation before taking action' },
-                                                                        'Virtue Builder': { main: 'spot people\'s potential and encourage their growth with sincerity', secondary: 'help people rise to challenges by offering steady support and belief in them' }
-                                                                    };
-                                                                    return strengthsMap[topResult.name].secondary;
-                                                                })()}. This combination shapes how you naturally show up in service and how others experience your support. Your full profile goes deeper into how this shows up in real-life situations — and how to use your strengths with confidence.
-                                                            </>
-                                                        )}
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </>
-                                    )}
-                                </div>
+                                            return (
+                                                <>
+                                                    <h2 className="text-2xl font-bold mb-4 text-center text-gray-600">
+                                                        You are tied for your top profile!
+                                                    </h2>
 
+                                                    <div className="flex flex-col md:flex-row gap-4 mb-4">
+                                                        {/* Mini Card A */}
+                                                        <div
+                                                            className="flex-1 rounded-lg p-5 shadow-md"
+                                                            style={{
+                                                                backgroundColor: archetypes[nameA].color,
+                                                                color: 'white'
+                                                            }}
+                                                        >
+                                                            <div className="flex flex-col items-center text-center">
+                                                                <div
+                                                                    className="w-16 h-16 mb-3 flex-shrink-0"
+                                                                    style={{
+                                                                        WebkitMaskImage: `url(${iconA})`,
+                                                                        WebkitMaskRepeat: 'no-repeat',
+                                                                        WebkitMaskSize: 'contain',
+                                                                        WebkitMaskPosition: 'center',
+                                                                        maskImage: `url(${iconA})`,
+                                                                        maskRepeat: 'no-repeat',
+                                                                        maskSize: 'contain',
+                                                                        maskPosition: 'center',
+                                                                        backgroundColor: 'white'
+                                                                    }}
+                                                                />
+                                                                <h3 className="text-xl font-bold mb-3">
+                                                                    {nameA}
+                                                                </h3>
+                                                                <p className="text-base leading-relaxed opacity-95">
+                                                                    You {strengthsMap[nameA].main}.
+                                                                </p>
+                                                            </div>
+                                                        </div>
+
+                                                        {/* Mini Card B */}
+                                                        <div
+                                                            className="flex-1 rounded-lg p-5 shadow-md"
+                                                            style={{
+                                                                backgroundColor: archetypes[nameB].color,
+                                                                color: 'white'
+                                                            }}
+                                                        >
+                                                            <div className="flex flex-col items-center text-center">
+                                                                <div
+                                                                    className="w-16 h-16 mb-3 flex-shrink-0"
+                                                                    style={{
+                                                                        WebkitMaskImage: `url(${iconB})`,
+                                                                        WebkitMaskRepeat: 'no-repeat',
+                                                                        WebkitMaskSize: 'contain',
+                                                                        WebkitMaskPosition: 'center',
+                                                                        maskImage: `url(${iconB})`,
+                                                                        maskRepeat: 'no-repeat',
+                                                                        maskSize: 'contain',
+                                                                        maskPosition: 'center',
+                                                                        backgroundColor: 'white'
+                                                                    }}
+                                                                />
+                                                                <h3 className="text-xl font-bold mb-3">
+                                                                    {nameB}
+                                                                </h3>
+                                                                <p className="text-base leading-relaxed opacity-95">
+                                                                    You also {strengthsMap[nameB].main}.
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </>
+                                            );
+                                        })()}
+                                    </div>
+                                )}
 
                                 {/* Secondary Archetype - only show if no tie */}
                                 {!topResult.isTie && (
@@ -1410,7 +1423,6 @@ const ServiceStewardsQuiz = () => {
                                     </div>
                                 )}
 
-
                                 {/* PURCHASE BUTTONS SECTION */}
                                 {(() => {
                                     // Determine top profiles for purchase logic
@@ -1423,49 +1435,32 @@ const ServiceStewardsQuiz = () => {
                                     const is2WayTie = topProfiles.length === 2;
                                     const is3PlusTie = topProfiles.length >= 3;
 
-                                    // For single profile, auto-select it
+                                    // Determine which profile to use for checkout
                                     const effectiveSelectedProfile = isSingleProfile
                                         ? topProfiles[0]
                                         : selectedProfileForPurchase;
 
-                                    const handleBundlePurchase = () => {
-                                        setPurchaseError('');
-
-                                        if (!isSingleProfile && !effectiveSelectedProfile) {
-                                            setPurchaseError('Please choose one style to explore first.');
-                                            return;
-                                        }
-
-                                        const slug = profileData[effectiveSelectedProfile].slug;
-                                        const checkoutUrl = buildCheckoutUrl(DEEP_DIVE_BUNDLE_CHECKOUT_BASE, slug);
-
-                                        if (!checkoutUrl) {
-                                            console.warn('Bundle checkout URL not configured yet.');
-                                            setPurchaseError('Checkout is not available yet. Please check back soon!');
-                                            return;
-                                        }
-
-                                        window.open(checkoutUrl, '_blank');
-                                    };
+                                    // Final profile for checkout (no fallback - selection required for ties)
+                                    const profileForCheckout = effectiveSelectedProfile;
 
                                     const handleDeepDiveOnlyPurchase = () => {
                                         setPurchaseError('');
 
+                                        // Require profile selection for ties
                                         if (!isSingleProfile && !effectiveSelectedProfile) {
                                             setPurchaseError('Please choose one style to explore first.');
                                             return;
                                         }
 
-                                        const slug = profileData[effectiveSelectedProfile].slug;
-                                        const checkoutUrl = buildCheckoutUrl(DEEP_DIVE_ONLY_CHECKOUT_BASE, slug);
+                                        const checkoutUrl = CHECKOUT_URLS[profileForCheckout];
 
-                                        if (!checkoutUrl) {
-                                            console.warn('Deep Dive Only checkout URL not configured yet.');
+                                        if (!checkoutUrl || checkoutUrl === "PASTE_URL_HERE") {
+                                            console.warn('Checkout URL not configured yet.');
                                             setPurchaseError('Checkout is not available yet. Please check back soon!');
                                             return;
                                         }
 
-                                        window.open(checkoutUrl, '_blank');
+                                        window.location.href = checkoutUrl;
                                     };
 
                                     return (
@@ -1475,7 +1470,7 @@ const ServiceStewardsQuiz = () => {
                                                 <div className="mb-6">
                                                     <p className="text-gray-700 text-center mb-4">
                                                         <span className="font-medium">Choose the style you want your Deep Dive to focus on.</span>{' '}
-                                                        <span className="text-gray-600 text-sm">(Pick the one that feels most like you.)</span>
+                                                        <span className="text-gray-600 text-sm">(Pick the one that fits you best right now.)</span>
                                                     </p>
 
                                                     <div className="flex flex-col gap-2 max-w-3xl mx-auto">
@@ -1515,33 +1510,21 @@ const ServiceStewardsQuiz = () => {
                                                 </div>
                                             )}
 
-                                            {/* Text about buttons */}
+                                            {/* Text about button */}
                                             <div className="text-center mb-4 max-w-2xl mx-auto px-4">
-                                                <p className="text-gray-600 text-sm">
-                                                    A Deep Dive helps you clearly understand your unique service strengths and shows you how to put them into action. Choose what option works best for you.
+                                                <p className="text-gray-600 font-medium">
+                                                    This Deep Dive explains your service strengths, common struggles and practical ways to grow.
                                                 </p>
                                             </div>
 
-                                            {/* Purchase Buttons */}
-                                            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                                                {/* Primary: Bundle Button */}
-                                                <button
-                                                    onClick={handleBundlePurchase}
-                                                    className="inline-flex flex-col items-center justify-center px-6 py-3 rounded-full font-semibold text-center transition-all duration-200 bg-[#12C4A4] text-white border-2 border-[#12C4A4] hover:bg-[#0fa28a] hover:border-[#0fa28a] shadow-sm hover:shadow-md"
-                                                >
-                                                    <span className="text-[0.95rem] leading-tight">Profile Deep Dive + All Summaries Booklet</span>
-                                                    <span className="text-[0.9rem] opacity-90 mt-1 font-normal">
-                                                        ${BUNDLE_PRICE} — Buying separately costs $10 more
-                                                    </span>
-                                                </button>
-
-                                                {/* Secondary: Deep Dive Only Button */}
+                                            {/* Purchase Button */}
+                                            <div className="flex justify-center">
                                                 <button
                                                     onClick={handleDeepDiveOnlyPurchase}
-                                                    className="inline-flex flex-col items-center justify-center px-6 py-3 rounded-full font-semibold text-center transition-all duration-200 bg-white text-[#12C4A4] border-2 border-[#12C4A4] hover:bg-[#e6f7f4] shadow-sm hover:shadow-md"
+                                                    className="inline-flex flex-col items-center justify-center px-10 py-4 rounded-full font-semibold text-center transition-all duration-200 bg-[#12C4A4] text-white border-2 border-[#12C4A4] hover:bg-[#0fa28a] hover:border-[#0fa28a] shadow-sm hover:shadow-md min-w-[280px]"
                                                 >
-                                                    <span className="text-[0.95rem] leading-tight">Deep Dive Guide Only</span>
-                                                    <span className="text-[0.875rem] opacity-85 mt-1 font-normal">${DEEP_DIVE_PRICE}</span>
+                                                    <span className="text-lg font-bold leading-tight">Explore Your Full Profile</span>
+                                                    <span className="text-xl opacity-95 mt-1 font-medium">$14</span>
                                                 </button>
                                             </div>
                                         </div>
