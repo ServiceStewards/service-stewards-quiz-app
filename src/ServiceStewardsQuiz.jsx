@@ -355,6 +355,10 @@ const ServiceStewardsQuiz = () => {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitError, setSubmitError] = useState('');
 
+    // NEW: Optional group/class fields
+    const [groupUse, setGroupUse] = useState(false);
+    const [groupName, setGroupName] = useState('');
+
     // END: INITIALIZATION / SETUP CODE
 
     // START: USER INPUT HANDLING
@@ -823,7 +827,7 @@ const ServiceStewardsQuiz = () => {
             ctx.textAlign = 'center';
             ctx.fillStyle = '#000000';
             ctx.font = '600 56px Montserrat, Arial, sans-serif';
-            ctx.fillText('MY FULL SERVICE STYLE', 540, 540);
+            ctx.fillText('MY SERVICE STYLE', 540, 540);
             ctx.fillText('BREAKDOWN', 540, 610);
 
             // Load all icons first
@@ -948,7 +952,11 @@ const ServiceStewardsQuiz = () => {
                 tiedProfiles: topResult.tiedWith || [],
                 selectedProfileKey: selectedProfileForPurchase || topResult.name,
                 scores: allScores,
-                allAnswers: answers
+                allAnswers: answers,
+
+                // NEW: Group/class metadata
+                group_use: groupUse,
+                group_name: groupUse ? groupName.trim() : ""
             };
 
             console.log('Sending payload to webhook:', payload);
@@ -1002,15 +1010,46 @@ const ServiceStewardsQuiz = () => {
                             </p>
                         </div>
 
-                        <div className="max-w-md mx-auto p-6 rounded-lg" style={{ backgroundColor: '#d8d0c1' }}>
+                        <div
+                            className="max-w-md mx-auto p-6 rounded-lg border"
+                            style={{ backgroundColor: '#f5f5f5', borderColor: '#e5e5e5' }}
+                        >
                             <input
                                 type="email"
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
                                 placeholder="your@email.com"
-                                className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg mb-3 focus:outline-none focus:border-blue-400 text-lg"
+                                className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg mb-3 focus:outline-none focus:border-blue-400 text-lg bg-white text-black"
                                 disabled={isSubmitting}
                             />
+
+                            {/* OPTIONAL: Group/Class checkbox */}
+                            <label className="flex items-center gap-2 mb-3 text-sm text-gray-700">
+                                <input
+                                    type="checkbox"
+                                    checked={groupUse}
+                                    onChange={(e) => {
+                                        const checked = e.target.checked;
+                                        setGroupUse(checked);
+                                        if (!checked) setGroupName('');
+                                    }}
+                                    disabled={isSubmitting}
+                                />
+                                I’m taking this quiz as part of a group or class.
+                            </label>
+
+                            {/* OPTIONAL: Group/Organization name (only show if checkbox is checked) */}
+                            {groupUse && (
+                                <input
+                                    type="text"
+                                    value={groupName}
+                                    onChange={(e) => setGroupName(e.target.value)}
+                                    placeholder="Group or organization name"
+                                    className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg mb-3 focus:outline-none focus:border-blue-400 text-lg bg-white text-black"
+                                    disabled={isSubmitting}
+                                />
+                            )}
+
                             {submitError && (
                                 <p className="text-red-600 text-sm mb-3">{submitError}</p>
                             )}
@@ -1019,7 +1058,8 @@ const ServiceStewardsQuiz = () => {
                                 disabled={!email || isSubmitting}
                                 className="w-full px-6 py-4 rounded-lg font-semibold transition-all duration-200 text-white text-lg"
                                 style={{
-                                    backgroundColor: (!email || isSubmitting) ? '#D1D5DB' : '#D1A247',
+                                    backgroundColor: (!email || isSubmitting) ? '#D1D5DB' : '#cfa247',
+                                    color: '#ffffff',
                                     cursor: (!email || isSubmitting) ? 'not-allowed' : 'pointer'
                                 }}
                             >
@@ -1490,7 +1530,9 @@ const ServiceStewardsQuiz = () => {
                                                     className="inline-flex flex-col items-center justify-center px-6 py-3 rounded-full font-semibold text-center transition-all duration-200 bg-[#12C4A4] text-white border-2 border-[#12C4A4] hover:bg-[#0fa28a] hover:border-[#0fa28a] shadow-sm hover:shadow-md"
                                                 >
                                                     <span className="text-[0.95rem] leading-tight">Profile Deep Dive + All Summaries Booklet</span>
-                                                    <span className="text-[0.9rem] opacity-90 mt-1 font-normal">${BUNDLE_PRICE} — $10 savings bundle</span>
+                                                    <span className="text-[0.9rem] opacity-90 mt-1 font-normal">
+                                                        ${BUNDLE_PRICE} — Buying separately costs $10 more
+                                                    </span>
                                                 </button>
 
                                                 {/* Secondary: Deep Dive Only Button */}
