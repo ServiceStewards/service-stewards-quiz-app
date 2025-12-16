@@ -987,9 +987,9 @@ const ServiceStewardsQuiz = () => {
         try {
             const clickPayload = {
                 email: email.trim(),
-                timestamp: new Date().toISOString(),
+                clickTimestamp: new Date().toISOString(),
                 event: 'purchase_button_clicked',
-                selectedProfile: profileForCheckout,
+                effectiveSelectedProfile: profileForCheckout,
                 isTie: !isSingleProfile,
                 tieType: is2WayTie ? '2-way' : (is3PlusTie ? '3+way' : 'single'),
                 checkoutUrl: CHECKOUT_URLS[profileForCheckout]
