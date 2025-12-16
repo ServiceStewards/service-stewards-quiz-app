@@ -646,7 +646,7 @@ const ServiceStewardsQuiz = () => {
                     // Draw the tied message
                     ctx.font = '52px Montserrat, Arial, sans-serif';
                     ctx.fillStyle = '#374151';
-                    ctx.fillText("You're tied for your top service style!", 540, currentY + 130);
+                   ctx.fillText("My Top Service Styles (Tied Result)", 540, currentY + 130);
 
                     // Convert and download
                     canvas.toBlob((blob) => {
