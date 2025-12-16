@@ -646,7 +646,7 @@ const ServiceStewardsQuiz = () => {
                     // Draw the tied message
                     ctx.font = '52px Montserrat, Arial, sans-serif';
                     ctx.fillStyle = '#374151';
-                   ctx.fillText("My Top Service Styles (Tied Result)", 540, currentY + 130);
+                    ctx.fillText("My Top Service Styles (Tied Result)", 540, currentY + 130);
 
                     // Convert and download
                     canvas.toBlob((blob) => {
@@ -982,6 +982,34 @@ const ServiceStewardsQuiz = () => {
         }
     };
 
+    // Track Deep Dive purchase button clicks
+    const trackPurchaseButtonClick = async (profileForCheckout, isSingleProfile, is2WayTie, is3PlusTie) => {
+        try {
+            const clickPayload = {
+                email: email.trim(),
+                timestamp: new Date().toISOString(),
+                event: 'purchase_button_clicked',
+                selectedProfile: profileForCheckout,
+                isTie: !isSingleProfile,
+                tieType: is2WayTie ? '2-way' : (is3PlusTie ? '3+way' : 'single'),
+                checkoutUrl: CHECKOUT_URLS[profileForCheckout]
+            };
+
+            console.log('Tracking purchase button click:', clickPayload);
+
+            await fetch('https://hook.us2.make.com/dzsp7kdyad7654lyu4oddj8im08werj9', {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(clickPayload)
+            });
+
+        } catch (error) {
+            console.error('Error tracking purchase click:', error);
+        }
+    };
+
     // START: EMAIL CAPTURE SCREEN
     if (showEmailCapture && !showResults) {
         return (
@@ -1068,6 +1096,7 @@ const ServiceStewardsQuiz = () => {
             </div>
         );
     }
+
     // END: EMAIL CAPTURE SCREEN
 
     // START: RESULTS SECTION / RESULT DISPLAY LOGIC
@@ -1460,6 +1489,27 @@ const ServiceStewardsQuiz = () => {
                                             return;
                                         }
 
+                                        // Track button click
+                                        const clickData = {
+                                            profile: profileForCheckout,
+                                            timestamp: new Date().toISOString(),
+                                            isTie: !isSingleProfile,
+                                            tieType: is2WayTie ? '2-way' : (is3PlusTie ? '3+way' : null)
+                                        };
+
+                                        // Send to your tracking endpoint (replace with your actual endpoint)
+                                        fetch('YOUR_TRACKING_ENDPOINT_URL', {
+                                            method: 'POST',
+                                            headers: {
+                                                'Content-Type': 'application/json',
+                                            },
+                                            body: JSON.stringify(clickData)
+                                        }).catch(error => {
+                                            console.error('Tracking failed:', error);
+                                            // Don't block checkout if tracking fails
+                                        });
+
+                                        // Redirect to checkout
                                         window.location.href = checkoutUrl;
                                     };
 
