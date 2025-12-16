@@ -1472,7 +1472,7 @@ const ServiceStewardsQuiz = () => {
                                     // Final profile for checkout (no fallback - selection required for ties)
                                     const profileForCheckout = effectiveSelectedProfile;
 
-                                    const handleDeepDiveOnlyPurchase = () => {
+                                    const handleDeepDiveOnlyPurchase = async () => {
                                         setPurchaseError('');
 
                                         // Require profile selection for ties
@@ -1489,25 +1489,8 @@ const ServiceStewardsQuiz = () => {
                                             return;
                                         }
 
-                                        // Track button click
-                                        const clickData = {
-                                            profile: profileForCheckout,
-                                            timestamp: new Date().toISOString(),
-                                            isTie: !isSingleProfile,
-                                            tieType: is2WayTie ? '2-way' : (is3PlusTie ? '3+way' : null)
-                                        };
-
-                                        // Send to your tracking endpoint (replace with your actual endpoint)
-                                        fetch('YOUR_TRACKING_ENDPOINT_URL', {
-                                            method: 'POST',
-                                            headers: {
-                                                'Content-Type': 'application/json',
-                                            },
-                                            body: JSON.stringify(clickData)
-                                        }).catch(error => {
-                                            console.error('Tracking failed:', error);
-                                            // Don't block checkout if tracking fails
-                                        });
+                                        // Track the button click before redirecting
+                                        await trackPurchaseButtonClick(profileForCheckout, isSingleProfile, is2WayTie, is3PlusTie);
 
                                         // Redirect to checkout
                                         window.location.href = checkoutUrl;
@@ -1573,7 +1556,7 @@ const ServiceStewardsQuiz = () => {
                                                     onClick={handleDeepDiveOnlyPurchase}
                                                     className="inline-flex flex-col items-center justify-center px-10 py-4 rounded-full font-semibold text-center transition-all duration-200 bg-[#12C4A4] text-white border-2 border-[#12C4A4] hover:bg-[#0fa28a] hover:border-[#0fa28a] shadow-sm hover:shadow-md min-w-[280px]"
                                                 >
-                                                    <span className="text-lg font-bold leading-tight">Explore Your Full Profile</span>
+                                                    <span className="text-lg font-bold leading-tight">Explore Your Top Profile</span>
                                                     <span className="text-xl opacity-95 mt-1 font-medium">$14</span>
                                                 </button>
                                             </div>
