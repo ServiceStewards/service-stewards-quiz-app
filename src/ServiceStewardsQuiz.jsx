@@ -1492,6 +1492,9 @@ const ServiceStewardsQuiz = () => {
                                         // Track the button click before redirecting
                                         await trackPurchaseButtonClick(profileForCheckout, isSingleProfile, is2WayTie, is3PlusTie);
 
+                                        // Small delay to ensure tracking completes before redirect
+                                        await new Promise(resolve => setTimeout(resolve, 500));
+
                                         // Redirect to checkout
                                         window.location.href = checkoutUrl;
                                     };
