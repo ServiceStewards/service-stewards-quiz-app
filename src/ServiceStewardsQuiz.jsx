@@ -982,34 +982,6 @@ const ServiceStewardsQuiz = () => {
         }
     };
 
-    // Track Deep Dive purchase button clicks
-    const trackPurchaseButtonClick = async (profileForCheckout, isSingleProfile, is2WayTie, is3PlusTie) => {
-        try {
-            const clickPayload = {
-                email: email.trim(),
-                clickTimestamp: new Date().toISOString(),
-                event: 'purchase_button_clicked',
-                effectiveSelectedProfile: profileForCheckout,
-                isTie: !isSingleProfile,
-                tieType: is2WayTie ? '2-way' : (is3PlusTie ? '3+way' : 'single'),
-                checkoutUrl: CHECKOUT_URLS[profileForCheckout]
-            };
-
-            console.log('Tracking purchase button click:', clickPayload);
-
-            await fetch('https://hook.us2.make.com/dzsp7kdyad7654lyu4oddj8im08werj9', {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(clickPayload)
-            });
-
-        } catch (error) {
-            console.error('Error tracking purchase click:', error);
-        }
-    };
-
     // START: EMAIL CAPTURE SCREEN
     if (showEmailCapture && !showResults) {
         return (
@@ -1472,7 +1444,7 @@ const ServiceStewardsQuiz = () => {
                                     // Final profile for checkout (no fallback - selection required for ties)
                                     const profileForCheckout = effectiveSelectedProfile;
 
-                                    const handleDeepDiveOnlyPurchase = async () => {
+                                    const handleDeepDiveOnlyPurchase = () => {
                                         setPurchaseError('');
 
                                         // Require profile selection for ties
@@ -1488,12 +1460,6 @@ const ServiceStewardsQuiz = () => {
                                             setPurchaseError('Checkout is not available yet. Please check back soon!');
                                             return;
                                         }
-
-                                        // Track the button click before redirecting
-                                        await trackPurchaseButtonClick(profileForCheckout, isSingleProfile, is2WayTie, is3PlusTie);
-
-                                        // Small delay to ensure tracking completes before redirect
-                                        await new Promise(resolve => setTimeout(resolve, 500));
 
                                         // Redirect to checkout
                                         window.location.href = checkoutUrl;
