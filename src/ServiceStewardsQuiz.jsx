@@ -1043,7 +1043,27 @@ const ServiceStewardsQuiz = () => {
                                     disabled={isSubmitting}
                                 />
                             )}
-
+                            {/* Privacy Notice */}
+                            <p className="text-xs text-gray-600 mb-4 text-center leading-relaxed">
+                                By submitting your email, you agree to receive communications from Service Stewards and acknowledge our{' '}
+                                <a
+                                    href="https://www.servicestewards.com/privacy-policy"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="text-blue-600 hover:text-blue-800 underline"
+                                >
+                                    Privacy Policy
+                                </a>
+                                {' '}and{' '}
+                                <a
+                                    href="https://www.servicestewards.com/terms-of-service"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="text-blue-600 hover:text-blue-800 underline"
+                                >
+                                    Terms of Service
+                                </a>.
+                            </p>
                             {submitError && (
                                 <p className="text-red-600 text-sm mb-3">{submitError}</p>
                             )}
@@ -1515,7 +1535,13 @@ const ServiceStewardsQuiz = () => {
                                             {/* Text about button */}
                                             <div className="text-center mb-4 max-w-2xl mx-auto px-4">
                                                 <p className="text-gray-600 font-medium">
-                                                    This Deep Dive explains your service strengths, common struggles and practical ways to grow.
+                                                    Your Service Profile Deep Dive explains your service strengths, common struggles and practical ways to grow.
+                                                </p>
+                                            </div>
+                                            {/* Download reminder notice */}
+                                            <div className="bg-yellow-50 border-l-4 border-yellow-400 p-4 mb-6 max-w-2xl mx-auto">
+                                                <p className="text-sm font-semibold text-yellow-800">
+                                                    📸 Save Your Results Chart First! Download your free results image (or screenshot) below before purchasing. We cannot retrieve your detailed breakdown later.
                                                 </p>
                                             </div>
 
@@ -1525,7 +1551,7 @@ const ServiceStewardsQuiz = () => {
                                                     onClick={handleDeepDiveOnlyPurchase}
                                                     className="inline-flex flex-col items-center justify-center px-10 py-4 rounded-full font-semibold text-center transition-all duration-200 bg-[#12C4A4] text-white border-2 border-[#12C4A4] hover:bg-[#0fa28a] hover:border-[#0fa28a] shadow-sm hover:shadow-md min-w-[280px]"
                                                 >
-                                                    <span className="text-lg font-bold leading-tight">Explore Your Top Profile</span>
+                                                    <span className="text-lg font-bold leading-tight">Explore Your Top Profile: Deep Dive Guide</span>
                                                     <span className="text-xl opacity-95 mt-1 font-medium">$14</span>
                                                 </button>
                                             </div>
@@ -1541,7 +1567,7 @@ const ServiceStewardsQuiz = () => {
                                 {/* Important message about saving results */}
                                 <div className="text-center mb-4 max-w-2xl mx-auto px-4">
                                     <p className="text-gray-700 text-sm">
-                                        Be sure to download image or screenshot this chart now—this page isn't saved and we can't recreate your breakdown results later.
+                                        Enjoy this free download image of your results chart below—this page isn't saved and we can't recreate your breakdown results later.
                                     </p>
                                 </div>
 
@@ -1554,7 +1580,7 @@ const ServiceStewardsQuiz = () => {
                                         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                                         </svg>
-                                        Download Image of Your Complete Breakdown (free)
+                                        Download Image of Your Results Chart below (free)
                                     </button>
                                 </div>
 
