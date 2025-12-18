@@ -924,22 +924,34 @@ const ServiceStewardsQuiz = () => {
             const secondResult = getSecondArchetype();
             const allScores = calculateScores();
 
-            // Determine tie scenario
+            // Determine tie scenario and build tied profiles string
             let tieScenario = 'single';
-            if (topResult.isTie && topResult.tiedWith) {
+            let tiedTopProfiles = '';
+            let topArchetype = topResult.name;
+
+            if (topResult.isTie && topResult.tiedWith && topResult.tiedWith.length > 0) {
+                // Multiple tied profiles
                 if (topResult.tiedWith.length === 1) {
                     tieScenario = 'tie2';
-                } else if (topResult.tiedWith.length >= 2) {
+                } else {
                     tieScenario = 'tie3plus';
                 }
+
+                // Create comma-separated string of ALL tied profiles (including the first one)
+                const allTiedProfiles = [topResult.name, ...topResult.tiedWith];
+                tiedTopProfiles = allTiedProfiles.join(', ');
+                topArchetype = ''; // Clear topArchetype when there's a tie
             }
 
             // Build comprehensive payload
             const payload = {
                 email: email.trim(),
                 timestamp: new Date().toISOString(),
+                topArchetype: topArchetype, // Empty if tied, otherwise the single top profile
+                tied_top_profiles: tiedTopProfiles, // Empty if single, otherwise comma-separated string
                 topProfileKey: topResult.name,
                 topProfilePercentage: topResult.percentage,
+                secondArchetype: secondResult.name, // Renamed for clarity
                 secondProfileKey: secondResult.name,
                 secondProfilePercentage: secondResult.percentage,
                 tieScenario: tieScenario,
@@ -948,7 +960,7 @@ const ServiceStewardsQuiz = () => {
                 scores: allScores,
                 allAnswers: answers,
 
-                // NEW: Group/class metadata
+                // Group/class metadata
                 group_use: groupUse,
                 group_name: groupUse ? groupName.trim() : ""
             };
@@ -1686,8 +1698,11 @@ const ServiceStewardsQuiz = () => {
                                 Service Style Assessment
                             </h1>
                         </div>
-                        <p className="text-gray-600">
+                        <p className="text-gray-600 max-w-xl mx-auto px-6 leading-relaxed">
                             Discover how you naturally serve others. Don't overthink—go with your gut.
+                            There's no back button by design.
+                            <br />
+                            If you use your browser's back button, the quiz will restart.
                         </p>
                     </div>
 
