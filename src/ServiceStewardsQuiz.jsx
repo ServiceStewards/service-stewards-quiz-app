@@ -1041,16 +1041,16 @@ const ServiceStewardsQuiz = () => {
                                     }}
                                     disabled={isSubmitting}
                                 />
-                                I’m taking this quiz as part of a group or class.
+                                I’m taking this quiz as part of a group session.
                             </label>
 
-                            {/* OPTIONAL: Group/Organization name (only show if checkbox is checked) */}
+                            {/* OPTIONAL: Group/Company name (only show if checkbox is checked) */}
                             {groupUse && (
                                 <input
                                     type="text"
                                     value={groupName}
                                     onChange={(e) => setGroupName(e.target.value)}
-                                    placeholder="Group or organization name"
+                                    placeholder="Group name"
                                     className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg mb-3 focus:outline-none focus:border-blue-400 text-lg bg-white text-black"
                                     disabled={isSubmitting}
                                 />
