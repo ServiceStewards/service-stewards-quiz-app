@@ -1009,7 +1009,7 @@ const ServiceStewardsQuiz = () => {
                     <div className="bg-white rounded-xl shadow-lg p-8">
                         <div className="text-center mb-8">
                             <h1 className="text-3xl font-bold mb-4" style={{ color: '#4d4637' }}>
-                                You're All Done!
+                                You're Finished
                             </h1>
                             <p className="text-gray-600 text-lg">
                                 Enter your email to see your top Service Style!
@@ -1699,10 +1699,16 @@ const ServiceStewardsQuiz = () => {
                             </h1>
                         </div>
                         <p className="text-gray-600 max-w-xl mx-auto px-6 leading-relaxed">
-                            Discover how you naturally serve others. Don't overthink—go with your gut.
-                            There's no back button by design.
-                            <br />
-                            If you use your browser's back button, the quiz will restart.
+                            {currentQuestion < 2 ? (
+                                <>
+                                    Discover how you naturally serve others. Don't overthink—go with your gut.
+                                    There's no back button by design.
+                                    <br />
+                                    If you use your browser's back button, the quiz will restart.
+                                </>
+                            ) : (
+                                "Warning: clicking the back browser button will restart the quiz"
+                            )}
                         </p>
                     </div>
 
