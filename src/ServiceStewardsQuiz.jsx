@@ -1325,7 +1325,7 @@ const ServiceStewardsQuiz = () => {
                                                                     'Virtue Builder': { main: 'spot people\'s potential and encourage their growth with sincerity', secondary: 'help people rise to challenges by offering steady support and belief in them' }
                                                                 };
                                                                 return strengthsMap[topResult.name].secondary;
-                                                            })()}. This combination shapes how you naturally show up in service and how others experience your support. Your profile summary and deep dive guides go deeper into how this shows up in real-life situations — and how to use your strengths with confidence.
+                                                            })()}. This combination shapes how you naturally show up in service and how others experience your support. Your profile's Deep Dive Guide goes deeper into real-life situations (including challenges) — and how to use your strengths with confidence.
                                                         </p>
                                                     </div>
                                                 </div>
@@ -1547,7 +1547,7 @@ const ServiceStewardsQuiz = () => {
                                             {/* Text about button */}
                                             <div className="text-center mb-4 max-w-2xl mx-auto px-4">
                                                 <p className="text-gray-600 font-medium">
-                                                    Your Service Profile Deep Dive explains your service strengths, common struggles and practical ways to grow.
+                                                    Your Deep Dive Guide explains your top service profile's strengths, common struggles and practical ways to grow. Start enjoying service more!
                                                 </p>
                                             </div>
                                             {/* Download reminder notice */}
@@ -1563,7 +1563,8 @@ const ServiceStewardsQuiz = () => {
                                                     onClick={handleDeepDiveOnlyPurchase}
                                                     className="inline-flex flex-col items-center justify-center px-10 py-4 rounded-full font-semibold text-center transition-all duration-200 bg-[#12C4A4] text-white border-2 border-[#12C4A4] hover:bg-[#0fa28a] hover:border-[#0fa28a] shadow-sm hover:shadow-md min-w-[280px]"
                                                 >
-                                                    <span className="text-lg font-bold leading-tight">Explore Your Top Profile: Deep Dive Guide</span>
+                                                    <span className="text-lg font-semibold leading-tight">
+                                                        Get your Deep Dive Guide</span>
                                                     <span className="text-xl opacity-95 mt-1 font-medium">$14</span>
                                                 </button>
                                             </div>
@@ -1578,8 +1579,8 @@ const ServiceStewardsQuiz = () => {
 
                                 {/* Important message about saving results */}
                                 <div className="text-center mb-4 max-w-2xl mx-auto px-4">
-                                    <p className="text-gray-700 text-sm">
-                                        Enjoy this free download image of your results chart below—this page isn't saved and we can't recreate your breakdown results later.
+                                    <p className="text-gray-700 text-med">
+                                        Enjoy this free download image of your results chart—this page isn't saved and we can't recreate your breakdown results later.
                                     </p>
                                 </div>
 
@@ -1592,7 +1593,7 @@ const ServiceStewardsQuiz = () => {
                                         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                                         </svg>
-                                        Download Image of Your Results Chart below (free)
+                                        Download Image of Your Results Chart (seen below) FREE
                                     </button>
                                 </div>
 
@@ -1699,15 +1700,18 @@ const ServiceStewardsQuiz = () => {
                             </h1>
                         </div>
                         <p className="text-gray-600 max-w-xl mx-auto px-6 leading-relaxed">
-                            {currentQuestion < 2 ? (
+                            {currentQuestion < 3 ? (
                                 <>
-                                    Discover how you naturally serve others. Don't overthink—go with your gut.
+                                    Discover how you naturally serve others. 
+                                    <br />
+                                    Don't overthink—go with your gut.
+                                    <br />
                                     There's no back button by design.
                                     <br />
                                     If you use your browser's back button, the quiz will restart.
                                 </>
                             ) : (
-                                "Warning: clicking the back browser button will restart the quiz"
+                                "Warning: clicking 'back' in the browser will restart the quiz"
                             )}
                         </p>
                     </div>
