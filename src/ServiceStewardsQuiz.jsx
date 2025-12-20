@@ -80,7 +80,7 @@ const ServiceStewardsQuiz = () => {
         },
         {
             id: 2,
-            question: "Someone criticizes how you help. How do you respond?",
+            question: "If someone criticized the way you helped—or imagine it might happen—how would you respond?",
             answers: [
                 { text: "I check my motives—there might be truth in it.", archetype: "Skeptical Servant" },
                 { text: "I welcome the conversation—we're both learning.", archetype: "Mutual Partner" },
