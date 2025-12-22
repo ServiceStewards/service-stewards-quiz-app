@@ -1049,7 +1049,8 @@ const ServiceStewardsQuiz = () => {
                                 <input
                                     type="text"
                                     value={groupName}
-                                    onChange={(e) => setGroupName(e.target.value)}
+                                    onChange={(e) => setGroupName(
+                                        e.target.value)}
                                     placeholder="Group name"
                                     className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg mb-3 focus:outline-none focus:border-blue-400 text-lg bg-white text-black"
                                     disabled={isSubmitting}
@@ -1702,7 +1703,7 @@ const ServiceStewardsQuiz = () => {
                         <p className="text-gray-600 max-w-xl mx-auto px-6 leading-relaxed">
                             {currentQuestion < 3 ? (
                                 <>
-                                    Discover how you naturally serve others. 
+                                    Discover how you naturally serve others — and what helps you show up without burning out. 
                                     <br />
                                     Don't overthink—go with your gut.
                                     <br />
