@@ -1554,7 +1554,7 @@ const ServiceStewardsQuiz = () => {
                                             {/* Text about button */}
                                             <div className="text-center mb-4 max-w-2xl mx-auto px-4">
                                                 <p className="text-gray-600 font-medium">
-                                                    Your Deep Dive Guide explains your top style's strengths, common struggles and practical ways to grow. Find ways to help that doesn’t drain you.
+                                                    Your Deep Dive Guide explains your top style's strengths, common struggles and practical ways to grow. Find ways to help that don’t drain you.
                                                 </p>
                                             </div>
                                             {/* Download reminder notice */}
