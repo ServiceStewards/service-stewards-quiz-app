@@ -881,6 +881,12 @@ const ServiceStewardsQuiz = () => {
                 const filledWidth = (scoreData.percentage / 100) * barWidth;
                 ctx.fillStyle = archetypes[archetype].color;
                 ctx.fillRect(barStartX, currentY + 20, filledWidth, barHeight);
+
+                // Draw percentage text
+                ctx.textAlign = 'right';
+                ctx.fillStyle = '#374151'; // Gray color for percentages
+                ctx.font = '500 28px Montserrat, Arial, sans-serif';
+                ctx.fillText(`${scoreData.percentage}%`, barStartX + barWidth + 70, currentY + 43);
             });
 
             // Convert and download
@@ -1504,7 +1510,7 @@ const ServiceStewardsQuiz = () => {
                                             {(is2WayTie || is3PlusTie) && (
                                                 <div className="mb-6">
                                                     <p className="text-gray-700 text-center mb-4">
-                                                        <span className="font-medium">Choose the style you want your Deep Dive to focus on.</span>{' '}
+                                                        <span className="font-medium">Choose the style you want your Deep Dive Guide to focus on.</span>{' '}
                                                         <span className="text-gray-600 text-sm">(Pick the one that fits you best right now.)</span>
                                                     </p>
 
@@ -1548,13 +1554,13 @@ const ServiceStewardsQuiz = () => {
                                             {/* Text about button */}
                                             <div className="text-center mb-4 max-w-2xl mx-auto px-4">
                                                 <p className="text-gray-600 font-medium">
-                                                    Your Deep Dive Guide explains your top service profile's strengths, common struggles and practical ways to grow. Start enjoying service more!
+                                                    Your Deep Dive Guide explains your top style's strengths, common struggles and practical ways to grow. Find ways to help that doesn’t drain you.
                                                 </p>
                                             </div>
                                             {/* Download reminder notice */}
                                             <div className="bg-yellow-50 border-l-4 border-yellow-400 p-4 mb-6 max-w-2xl mx-auto">
                                                 <p className="text-sm font-semibold text-yellow-800">
-                                                    📸 Save Your Results Chart First! Download your free results image (or screenshot) below before purchasing. We cannot retrieve your detailed breakdown later.
+                                                    📸 Download your free results image (or screenshot) below before purchasing. We cannot retrieve your detailed breakdown later.
                                                 </p>
                                             </div>
 
@@ -1581,7 +1587,7 @@ const ServiceStewardsQuiz = () => {
                                 {/* Important message about saving results */}
                                 <div className="text-center mb-4 max-w-2xl mx-auto px-4">
                                     <p className="text-gray-700 text-med">
-                                        Enjoy this free download image of your results chart—this page isn't saved and we can't recreate your breakdown results later.
+                                        Enjoy this free image of your results chart— we can't recreate this later.
                                     </p>
                                 </div>
 
@@ -1660,6 +1666,44 @@ const ServiceStewardsQuiz = () => {
                                         })}
                                 </div>
 
+
+                 
+                                {/* Bottom CTA - Repeat purchase option after viewing results */}
+                                <div className="mt-8 text-center">
+                                    <button
+                                        onClick={() => {
+                                            // Use same logic as top button
+                                            const topProfiles = [topResult.name];
+                                            if (topResult.isTie && topResult.tiedWith) {
+                                                topProfiles.push(...topResult.tiedWith);
+                                            }
+                                            const isSingleProfile = topProfiles.length === 1;
+                                            const effectiveSelectedProfile = isSingleProfile ? topProfiles[0] : selectedProfileForPurchase;
+
+                                            if (!isSingleProfile && !effectiveSelectedProfile) {
+                                                setPurchaseError('Please choose one style to explore first.');
+                                                // Scroll to top where selection UI is
+                                                window.scrollTo({ top: 0, behavior: 'smooth' });
+                                                return;
+                                            }
+
+                                            const checkoutUrl = CHECKOUT_URLS[effectiveSelectedProfile];
+                                            if (!checkoutUrl || checkoutUrl === "PASTE_URL_HERE") {
+                                                setPurchaseError('Checkout is not available yet. Please check back soon!');
+                                                window.scrollTo({ top: 0, behavior: 'smooth' });
+                                                return;
+                                            }
+
+                                            window.location.href = checkoutUrl;
+                                        }}
+                                        className="inline-flex flex-col items-center justify-center px-10 py-4 rounded-full font-semibold text-center transition-all duration-200 bg-[#12C4A4] text-white border-2 border-[#12C4A4] hover:bg-[#0fa28a] hover:border-[#0fa28a] shadow-sm hover:shadow-md min-w-[280px]"
+                                    >
+                                        <span className="text-lg font-semibold leading-tight">
+                                            Learn More! —Dive Deeper
+                                        </span>
+                                        <span className="text-xl opacity-95 mt-1 font-medium">$14</span>
+                                    </button>
+                                </div>
                                 <div className="mt-8 p-6 bg-gradient-to-r from-blue-50 to-purple-50 rounded-lg">
                                     <h4 className="text-lg font-semibold text-gray-800 mb-3">Understanding Your Service Profile</h4>
                                     <p className="text-gray-700">
@@ -1703,7 +1747,7 @@ const ServiceStewardsQuiz = () => {
                         <p className="text-gray-600 max-w-xl mx-auto px-6 leading-relaxed">
                             {currentQuestion < 3 ? (
                                 <>
-                                    Discover how you naturally serve others — and what helps you show up without burning out. 
+                                    Discover how you naturally serve others — and what helps you show up without burning out.
                                     <br />
                                     Don't overthink—go with your gut.
                                     <br />
