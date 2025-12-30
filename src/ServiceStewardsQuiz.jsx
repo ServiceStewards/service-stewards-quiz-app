@@ -498,10 +498,10 @@ const ServiceStewardsQuiz = () => {
             // Set up text styling
             ctx.textAlign = 'center';
 
-            // Draw "MY SERVICE STYLE:" label
+            // Draw "MY SERVICE PROFILE:" label
             ctx.fillStyle = '#000000';
             ctx.font = '500 52px Montserrat, Arial, sans-serif';
-            ctx.fillText('MY SERVICE STYLE:', 540, 580);
+            ctx.fillText('MY SERVICE PROFILE:', 540, 580);
 
             if (is2WayTie) {
                 // TWO-WAY TIE: Draw two circles side by side
@@ -646,13 +646,13 @@ const ServiceStewardsQuiz = () => {
                     // Draw the tied message
                     ctx.font = '52px Montserrat, Arial, sans-serif';
                     ctx.fillStyle = '#374151';
-                    ctx.fillText("My Top Service Styles (Tied Result)", 540, currentY + 130);
+                    ctx.fillText("My Top Service Profiles (Tied Result)", 540, currentY + 130);
 
                     // Convert and download
                     canvas.toBlob((blob) => {
                         const url = URL.createObjectURL(blob);
                         const link = document.createElement('a');
-                        link.download = `my-service-style-${topResult.name.replace(/\s+/g, '-').toLowerCase()}-and-${tiedArchetype.replace(/\s+/g, '-').toLowerCase()}.png`;
+                        link.download = `my-service-profile-${topResult.name.replace(/\s+/g, '-').toLowerCase()}-and-${tiedArchetype.replace(/\s+/g, '-').toLowerCase()}.png`;
                         link.href = url;
                         link.click();
                         URL.revokeObjectURL(url);
@@ -821,7 +821,7 @@ const ServiceStewardsQuiz = () => {
             ctx.textAlign = 'center';
             ctx.fillStyle = '#000000';
             ctx.font = '600 56px Montserrat, Arial, sans-serif';
-            ctx.fillText('MY SERVICE STYLE', 540, 540);
+            ctx.fillText('MY SERVICE PROFILE', 540, 540);
             ctx.fillText('BREAKDOWN', 540, 610);
 
             // Load all icons first
@@ -1018,7 +1018,7 @@ const ServiceStewardsQuiz = () => {
                                 You're Finished
                             </h1>
                             <p className="text-gray-600 text-lg">
-                                Enter your email to see your top Service Style!
+                                Enter your email to see your top Service Profile!
                             </p>
                         </div>
 
@@ -1102,7 +1102,7 @@ const ServiceStewardsQuiz = () => {
                     </div>
                 </div>
                 <div className="text-center mt-8 text-xs text-gray-500">
-                    © 2025 Service Stewards. Service Style Assessment™. All rights reserved.
+                    © 2025 Service Stewards. Service Profile Assessment™. All rights reserved.
                 </div>
             </div>
         );
@@ -1131,7 +1131,7 @@ const ServiceStewardsQuiz = () => {
                             <div className="text-center mb-8">
                                 <div className="mb-4">
                                     <h1 className="text-3xl font-bold" style={{ color: '#4d4637' }}>
-                                        Service Style Assessment
+                                        Service Profile Assessment
                                     </h1>
                                 </div>
 
@@ -1150,9 +1150,9 @@ const ServiceStewardsQuiz = () => {
                                     {isMultiTie ? (
                                         // Special message for 3+ way ties
                                         <>
-                                            <h2 className="text-2xl font-bold mb-4">Your Service Style Results</h2>
+                                            <h2 className="text-2xl font-bold mb-4">Your Service Profile Results</h2>
                                             <p className="text-lg opacity-95 leading-relaxed">
-                                                Your results show a strong blend across several Service Styles.
+                                                Your results show a strong blend across several Service Profiles.
                                                 This can happen when strengths overlap or when the quiz is completed quickly.
                                             </p>
                                         </>
@@ -1183,7 +1183,7 @@ const ServiceStewardsQuiz = () => {
                                                 ))}
                                             </div>
                                             {topResult.isTie && (
-                                                <p className="text-sm opacity-90 mb-2 text-center">You're tied for your top service style!</p>
+                                                <p className="text-sm opacity-90 mb-2 text-center">You're tied for your top service profile!</p>
                                             )}
                                             <p className="text-lg opacity-90 mb-4">{archetypes[topResult.name].description}</p>
                                         </>
@@ -1242,7 +1242,7 @@ const ServiceStewardsQuiz = () => {
                         </div>
                     </div>
                     <div className="text-center mt-8 text-xs text-gray-500">
-                        © 2025 Service Stewards. Service Style Assessment™. All rights reserved.
+                        © 2025 Service Stewards. Service Profile Assessment™. All rights reserved.
                     </div>
                 </div>
             );
@@ -1261,7 +1261,7 @@ const ServiceStewardsQuiz = () => {
                             <div className="text-center mb-8">
                                 <div className="mb-4">
                                     <h1 className="text-3xl font-bold" style={{ color: '#4d4637' }}>
-                                        Service Style Assessment
+                                        Service Profile Assessment
                                     </h1>
                                 </div>
 
@@ -1280,9 +1280,9 @@ const ServiceStewardsQuiz = () => {
                                         {isMultiTie ? (
                                             // 3+ way tie - keep centered layout
                                             <>
-                                                <h2 className="text-2xl font-bold mb-4 text-center">Your Service Style Results</h2>
+                                                <h2 className="text-2xl font-bold mb-4 text-center">Your Service Profile Results</h2>
                                                 <p className="text-lg opacity-95 leading-relaxed text-center">
-                                                    Your results show a strong blend across several Service Styles.
+                                                    Your results show a strong blend across several Service Profiles.
                                                     This can happen when strengths overlap or when the quiz is completed quickly.
                                                 </p>
                                             </>
@@ -1448,7 +1448,7 @@ const ServiceStewardsQuiz = () => {
                                             background: `linear-gradient(135deg, ${archetypes[secondResult.name].color}, ${archetypes[secondResult.name].color}dd)`
                                         }}
                                     >
-                                        <h3 className="text-lg font-semibold mb-3 text-center">Your Secondary Service Style: {secondResult.name}</h3>
+                                        <h3 className="text-lg font-semibold mb-3 text-center">Your Secondary Service Profile: {secondResult.name}</h3>
 
                                         <div className="flex items-center justify-center gap-3">
                                             <img
@@ -1488,7 +1488,7 @@ const ServiceStewardsQuiz = () => {
 
                                         // Require profile selection for ties
                                         if (!isSingleProfile && !effectiveSelectedProfile) {
-                                            setPurchaseError('Please choose one style to explore first.');
+                                            setPurchaseError('Please choose one profile to explore first.');
                                             return;
                                         }
 
@@ -1510,7 +1510,7 @@ const ServiceStewardsQuiz = () => {
                                             {(is2WayTie || is3PlusTie) && (
                                                 <div className="mb-6">
                                                     <p className="text-gray-700 text-center mb-4">
-                                                        <span className="font-medium">Choose the style you want your Deep Dive Guide to focus on.</span>{' '}
+                                                        <span className="font-medium">Choose the profile you want the Deep Dive Guide to focus on.</span>{' '}
                                                         <span className="text-gray-600 text-sm">(Pick the one that fits you best right now.)</span>
                                                     </p>
 
@@ -1554,7 +1554,7 @@ const ServiceStewardsQuiz = () => {
                                             {/* Text about button */}
                                             <div className="text-center mb-4 max-w-2xl mx-auto px-4">
                                                 <p className="text-gray-600 font-medium">
-                                                    Your Deep Dive Guide explains your top style's strengths, common struggles and practical ways to grow. Find ways to help that don’t drain you.
+                                                    Your Deep Dive Guide explains your top profile's strengths, common struggles and practical ways to grow. Read to find ways to serve that won’t drain you.
                                                 </p>
                                             </div>
                                             {/* Download reminder notice */}
@@ -1622,7 +1622,7 @@ const ServiceStewardsQuiz = () => {
 
                                 <h3 className="text-2xl font-semibold text-gray-800 mb-6 flex items-center justify-center">
                                     <BarChart3 className="w-6 h-6 mr-2" />
-                                    Complete Service Style Breakdown
+                                    Complete Service Profile Breakdown
                                 </h3>
 
                                 <div className="grid gap-3">
@@ -1681,7 +1681,7 @@ const ServiceStewardsQuiz = () => {
                                             const effectiveSelectedProfile = isSingleProfile ? topProfiles[0] : selectedProfileForPurchase;
 
                                             if (!isSingleProfile && !effectiveSelectedProfile) {
-                                                setPurchaseError('Please choose one style to explore first.');
+                                                setPurchaseError('Please choose one profile to explore first.');
                                                 // Scroll to top where selection UI is
                                                 window.scrollTo({ top: 0, behavior: 'smooth' });
                                                 return;
@@ -1707,14 +1707,14 @@ const ServiceStewardsQuiz = () => {
                                 <div className="mt-8 p-6 bg-gradient-to-r from-blue-50 to-purple-50 rounded-lg">
                                     <h4 className="text-lg font-semibold text-gray-800 mb-3">Understanding Your Service Profile</h4>
                                     <p className="text-gray-700">
-                                        Want simple ideas for using your strengths in everyday life? Explore our Care Crew approach or follow us on Instagram at <a href="https://instagram.com/servicestewards_jen" target="_blank" rel="noopener noreferrer" className="text-[#12C4A4] hover:text-[#0fa890] font-medium underline">@servicestewards_jen</a> for weekly Service Stewards inspiration.
+                                        Want simple ideas for using your strengths in everyday life? Explore our Care Crew approach or follow us on Instagram at <a href="https://instagram.com/servicestewards_jen" target="_blank" rel="noopener noreferrer" className="text-[#12C4A4] hover:text-[#0fa890] font-medium underline">@servicestewards_jen</a> for weekly service inspiration.
                                     </p>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div className="text-center mt-8 text-xs text-gray-500">
-                        © 2025 Service Stewards. Service Style Assessment™. All rights reserved.
+                        © 2025 Service Stewards. Service Profile Assessment™. All rights reserved.
                     </div>
                 </div>
             );
@@ -1741,7 +1741,7 @@ const ServiceStewardsQuiz = () => {
                     <div className="text-center mb-8">
                         <div className="mb-4">
                             <h1 className="text-3xl font-bold" style={{ color: '#4d4637' }}>
-                                Service Style Assessment
+                                Service Profile Assessment
                             </h1>
                         </div>
                         <p className="text-gray-600 max-w-xl mx-auto px-6 leading-relaxed">
@@ -1832,14 +1832,14 @@ const ServiceStewardsQuiz = () => {
                                 cursor: selectedAnswer !== '' ? 'pointer' : 'not-allowed'
                             }}
                         >
-                            {currentQuestion < questions.length - 1 ? 'Next Question' : 'See My Service Style'}
+                            {currentQuestion < questions.length - 1 ? 'Next Question' : 'See My Service Profile'}
                             <ChevronRight className="w-5 h-5 ml-2" />
                         </button>
                     </div>
                 </div>
             </div>
             <div className="text-center mt-8 text-xs text-gray-500">
-                © 2025 Service Stewards. Service Style Assessment™. All rights reserved.
+                © 2025 Service Stewards. Service Profile Assessment™. All rights reserved.
             </div>
         </div>
     );
