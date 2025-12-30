@@ -1571,7 +1571,7 @@ const ServiceStewardsQuiz = () => {
                                                     className="inline-flex flex-col items-center justify-center px-10 py-4 rounded-full font-semibold text-center transition-all duration-200 bg-[#12C4A4] text-white border-2 border-[#12C4A4] hover:bg-[#0fa28a] hover:border-[#0fa28a] shadow-sm hover:shadow-md min-w-[280px]"
                                                 >
                                                     <span className="text-lg font-semibold leading-tight">
-                                                        Get your Deep Dive Guide</span>
+                                                        Get your Profile's Deep Dive Guide</span>
                                                     <span className="text-xl opacity-95 mt-1 font-medium">$14</span>
                                                 </button>
                                             </div>
@@ -1699,7 +1699,7 @@ const ServiceStewardsQuiz = () => {
                                         className="inline-flex flex-col items-center justify-center px-10 py-4 rounded-full font-semibold text-center transition-all duration-200 bg-[#12C4A4] text-white border-2 border-[#12C4A4] hover:bg-[#0fa28a] hover:border-[#0fa28a] shadow-sm hover:shadow-md min-w-[280px]"
                                     >
                                         <span className="text-lg font-semibold leading-tight">
-                                            Learn More! —Dive Deeper
+                                            Get your Profile's Guide
                                         </span>
                                         <span className="text-xl opacity-95 mt-1 font-medium">$14</span>
                                     </button>
