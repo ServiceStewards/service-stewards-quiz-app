@@ -339,6 +339,7 @@ const ServiceStewardsQuiz = () => {
     const [showEmailCapture, setShowEmailCapture] = useState(false);
     const [selectedAnswer, setSelectedAnswer] = useState('');
     const [isPremium, setIsPremium] = useState(false);
+    const [hasStarted, setHasStarted] = useState(false);
 
     // Purchase button state
     const [selectedProfileForPurchase, setSelectedProfileForPurchase] = useState(null);
@@ -1110,6 +1111,125 @@ const ServiceStewardsQuiz = () => {
 
     // END: EMAIL CAPTURE SCREEN
 
+    // START: LANDING PAGE
+    if (!hasStarted) {
+        return (
+            <div className="min-h-screen bg-gradient-to-br from-amber-50 to-yellow-50 py-8 px-4" style={{ fontFamily: 'Montserrat, sans-serif' }}>
+                <div className="container mx-auto max-w-4xl px-4">
+                    {/* Logo */}
+                    <div className="flex justify-center mb-8">
+                        <img
+                            src="https://raw.githubusercontent.com/ServiceStewards/service-stewards-quiz-assets/main/SERVICE%20STEWARDS%20logo.png"
+                            alt="Service Stewards Logo"
+                            className="h-20 sm:h-40 w-auto"
+                        />
+                    </div>
+
+                    {/* Main Card */}
+                    <div className="bg-white rounded-xl shadow-lg p-8 md:p-12">
+                        {/* Headline */}
+                        <h1 className="text-4xl md:text-5xl font-bold text-center mb-6" style={{ color: '#4d4637' }}>
+                            Discover Your Service Profile
+                        </h1>
+
+                        <p className="text-lg text-center text-gray-700 mb-8 leading-relaxed">
+                            We all show up to help in different ways. This short assessment helps you understand how you naturally serve others—and why some forms of helping feel energizing and others drain you.
+                        </p>
+
+                        {/* Key Details */}
+                        <div className="bg-gradient-to-r from-amber-50 to-yellow-50 rounded-lg p-6 mb-8">
+                            <div className="grid md:grid-cols-2 gap-6">
+                                <div className="flex items-start">
+                                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-[#D1A247] flex items-center justify-center mr-3 mt-1">
+                                        <span className="text-white font-bold text-sm">20</span>
+                                    </div>
+                                    <div>
+                                        <h3 className="font-semibold text-gray-800 mb-1">20 Questions</h3>
+                                        <p className="text-gray-600 text-sm">Short, real-life prompts about how you show up to help others.</p>
+                                    </div>
+                                </div>
+
+                                <div className="flex items-start">
+                                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-[#D1A247] flex items-center justify-center mr-3 mt-1">
+                                        <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h3 className="font-semibold text-gray-800 mb-1">10-15 Minutes</h3>
+                                        <p className="text-gray-600 text-sm">Complete at your own pace. Go with your first instinct—no overthinking. </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* What You'll See Right Away */}
+                        <div className="mb-8">
+                            <h2 className="text-2xl font-semibold text-gray-800 mb-4 text-center">What You’ll See Right Away</h2>
+                            <div className="space-y-3">
+                                <div className="flex items-start">
+                                   <svg className="w-6 h-6 text-gray-700 flex-shrink-0 mr-3 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                                    </svg>
+                                    <p className="text-gray-700">Your primary Service Profile, drawn from 8 distinct archetypes</p>
+                                </div>
+                                <div className="flex items-start">
+                                    <svg className="w-6 h-6 text-gray-700 flex-shrink-0 mr-3 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                                    </svg>
+                                    <p className="text-gray-700">A visual breakdown of how each service style shows up for you</p>
+                                </div>
+                                <div className="flex items-start">
+                                    <svg className="w-6 h-6 text-gray-700 flex-shrink-0 mr-3 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                                    </svg>
+                                    <p className="text-gray-700">Downloadable result images you can save or share</p>
+                                </div>
+                                <div className="flex items-start">
+                                   <svg className="w-6 h-6 text-gray-700 flex-shrink-0 mr-3 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                                    </svg>
+                                    <p className="text-gray-700">On-screen results immediately after entering your email</p>
+                                </div>
+                            </div>
+                        </div>
+                        {/* Important Notice */}
+                        <div className="bg-blue-50 border-l-4 border-blue-400 p-4 mb-8">
+                            <div className="flex items-start">
+                                <svg className="w-5 h-5 text-blue-400 flex-shrink-0 mr-3 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                                <p className="text-blue-800 text-sm">
+                                    <strong>Important:</strong> Bookmark this page if you don’t have time to complete the assessment now.
+                                    There’s no back button during the quiz- it’s designed to be completed in one session.
+                                </p>
+                            </div>
+                        </div>
+
+                        {/* Start Button */}
+                        <div className="text-center">
+                            <button
+                                onClick={() => setHasStarted(true)}
+                                className="inline-flex items-center px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-200 text-white shadow-md hover:shadow-lg transform hover:scale-105"
+                                style={{ backgroundColor: '#D1A247' }}
+                            >
+                                Start Assessment
+                                <ChevronRight className="w-5 h-5 ml-2" />
+                            </button>
+                        </div>
+                    </div>
+
+                    {/* Footer */}
+                    <div className="text-center mt-8 text-xs text-gray-500">
+                        © 2025 Service Stewards. Service Profile Assessment™. All rights reserved.
+                    </div>
+                </div>
+            </div>
+        );
+    }
+    // END: LANDING PAGE
+
+
     // START: RESULTS SECTION / RESULT DISPLAY LOGIC
     if (showResults) {
         const topResult = getTopArchetype();
@@ -1667,7 +1787,7 @@ const ServiceStewardsQuiz = () => {
                                 </div>
 
 
-                 
+
                                 {/* Bottom CTA - Repeat purchase option after viewing results */}
                                 <div className="mt-8 text-center">
                                     <button
@@ -1747,11 +1867,7 @@ const ServiceStewardsQuiz = () => {
                         <p className="text-gray-600 max-w-xl mx-auto px-6 leading-relaxed">
                             {currentQuestion < 3 ? (
                                 <>
-                                    Discover how you naturally serve others — and what helps you show up without burning out.
-                                    <br />
-                                    Don't overthink—go with your gut.
-                                    <br />
-                                    There's no back button by design.
+                                    Discover your Service Profile now! Don't overthink—go with your gut. There's no back button by design.
                                     <br />
                                     If you use your browser's back button, the quiz will restart.
                                 </>
