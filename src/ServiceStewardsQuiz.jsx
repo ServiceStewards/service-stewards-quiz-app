@@ -375,12 +375,20 @@ const ServiceStewardsQuiz = () => {
             } else {
                 setShowEmailCapture(true);
             }
+
+            // Scroll to top after state updates
+            setTimeout(() => {
+                window.scrollTo(0, 0);
+            }, 100);
         }
     };
 
     const handleViewBreakdown = () => {
         // Show full results breakdown page
         setIsPremium(true);
+        setTimeout(() => {
+            window.scrollTo(0, 0);
+        }, 300);
     };
     // END: USER INPUT HANDLING
 
@@ -991,6 +999,9 @@ const ServiceStewardsQuiz = () => {
 
             // Always show results regardless of webhook status
             setShowResults(true);
+            setTimeout(() => {
+                window.scrollTo(0, 0);
+            }, 300);
             setIsSubmitting(false);
 
         } catch (error) {
@@ -998,6 +1009,9 @@ const ServiceStewardsQuiz = () => {
             setIsSubmitting(false);
             // Show results anyway - the user deserves to see them even if webhook fails
             setShowResults(true);
+            setTimeout(() => {
+               window.scrollTo(0, 0);
+            }, 300);
         }
     };
 
@@ -1010,7 +1024,7 @@ const ServiceStewardsQuiz = () => {
                         <img
                             src="https://raw.githubusercontent.com/ServiceStewards/service-stewards-quiz-assets/main/SERVICE%20STEWARDS%20logo.png"
                             alt="Service Stewards Logo"
-                            className="h-14 sm:h-36 w-auto"
+                            className="h-32 sm:h-36 md:h-40 w-auto"
                         />
                     </div>
                     <div className="bg-white rounded-xl shadow-lg p-8">
@@ -1121,7 +1135,7 @@ const ServiceStewardsQuiz = () => {
                         <img
                             src="https://raw.githubusercontent.com/ServiceStewards/service-stewards-quiz-assets/main/SERVICE%20STEWARDS%20logo.png"
                             alt="Service Stewards Logo"
-                            className="h-20 sm:h-40 w-auto"
+                            className="h-32 sm:h-36 md:h-40 w-auto"
                         />
                     </div>
 
@@ -1168,7 +1182,7 @@ const ServiceStewardsQuiz = () => {
                             <h2 className="text-2xl font-semibold text-gray-800 mb-4 text-center">What You’ll See Right Away</h2>
                             <div className="space-y-3">
                                 <div className="flex items-start">
-                                   <svg className="w-6 h-6 text-gray-700 flex-shrink-0 mr-3 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <svg className="w-6 h-6 text-gray-700 flex-shrink-0 mr-3 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                                     </svg>
                                     <p className="text-gray-700">Your primary Service Profile, drawn from 8 distinct archetypes</p>
@@ -1186,7 +1200,7 @@ const ServiceStewardsQuiz = () => {
                                     <p className="text-gray-700">Downloadable result images you can save or share</p>
                                 </div>
                                 <div className="flex items-start">
-                                   <svg className="w-6 h-6 text-gray-700 flex-shrink-0 mr-3 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <svg className="w-6 h-6 text-gray-700 flex-shrink-0 mr-3 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                                     </svg>
                                     <p className="text-gray-700">On-screen results immediately after entering your email</p>
@@ -1209,7 +1223,12 @@ const ServiceStewardsQuiz = () => {
                         {/* Start Button */}
                         <div className="text-center">
                             <button
-                                onClick={() => setHasStarted(true)}
+                                onClick={() => {
+                                    setHasStarted(true);
+                                    setTimeout(() => {
+                                       window.scrollTo(0, 0);
+                                    }, 100);
+                                }}
                                 className="inline-flex items-center px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-200 text-white shadow-md hover:shadow-lg transform hover:scale-105"
                                 style={{ backgroundColor: '#D1A247' }}
                             >
@@ -1827,7 +1846,7 @@ const ServiceStewardsQuiz = () => {
                                 <div className="mt-8 p-6 bg-gradient-to-r from-blue-50 to-purple-50 rounded-lg">
                                     <h4 className="text-lg font-semibold text-gray-800 mb-3">Understanding Your Service Profile</h4>
                                     <p className="text-gray-700">
-                                        Want simple ideas for using your strengths in everyday life? Explore our Care Crew approach or follow us on Instagram at <a href="https://instagram.com/servicestewards_jen" target="_blank" rel="noopener noreferrer" className="text-[#12C4A4] hover:text-[#0fa890] font-medium underline">@servicestewards_jen</a> for weekly service inspiration.
+                                        Want simple ideas for using your strengths in everyday life? Explore our Care Crew approach or follow us on Instagram at <a href="https://instagram.com/servicestewards_jen" target="_blank" rel="noopener noreferrer" className="text-[#12C4A4] hover:text-[#0fa890] font-medium underline">@servicestewards_jen</a> for weekly tips.
                                     </p>
                                 </div>
                             </div>
@@ -1852,7 +1871,7 @@ const ServiceStewardsQuiz = () => {
                     <img
                         src="https://raw.githubusercontent.com/ServiceStewards/service-stewards-quiz-assets/main/SERVICE%20STEWARDS%20logo.png"
                         alt="Service Stewards Logo"
-                        className="h-14 sm:h-36 w-auto"
+                        className="h-32 sm:h-36 md:h-40 w-auto"
                     />
                 </div>
                 {/* END LOGO */}
@@ -1865,7 +1884,7 @@ const ServiceStewardsQuiz = () => {
                             </h1>
                         </div>
                         <p className="text-gray-600 max-w-xl mx-auto px-6 leading-relaxed">
-                            {currentQuestion < 3 ? (
+                            {currentQuestion < 1 ? (
                                 <>
                                     Discover your Service Profile now! Don't overthink—go with your gut. There's no back button by design.
                                     <br />
