@@ -1010,7 +1010,7 @@ const ServiceStewardsQuiz = () => {
             // Show results anyway - the user deserves to see them even if webhook fails
             setShowResults(true);
             setTimeout(() => {
-               window.scrollTo(0, 0);
+                window.scrollTo(0, 0);
             }, 300);
         }
     };
@@ -1226,7 +1226,7 @@ const ServiceStewardsQuiz = () => {
                                 onClick={() => {
                                     setHasStarted(true);
                                     setTimeout(() => {
-                                       window.scrollTo(0, 0);
+                                        window.scrollTo(0, 0);
                                     }, 100);
                                 }}
                                 className="inline-flex items-center px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-200 text-white shadow-md hover:shadow-lg transform hover:scale-105"
@@ -1430,23 +1430,23 @@ const ServiceStewardsQuiz = () => {
                                             <>
                                                 <h2 className="text-3xl font-bold mb-4 text-center">{topResult.name}</h2>
 
-                                                <div className="flex gap-6 items-start">
-                                                    {/* Left column - Icon */}
-                                                    <div className="w-14 sm:w-16 md:w-20 flex flex-col items-center justify-center gap-2 py-2">
+                                                <div className="flex flex-col md:flex-row gap-6 items-center md:items-start">
+                                                    {/* Icon - centered on mobile, left on desktop */}
+                                                    <div className="flex-shrink-0">
                                                         <img
                                                             src={topIconUrl}
                                                             alt={topResult.name}
-                                                            className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32"
+                                                            className="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32"
                                                             style={{ filter: 'brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(200%) contrast(100%)' }}
                                                         />
                                                     </div>
 
-                                                    {/* Vertical dotted separator */}
-                                                    <div className="border-l border-dotted border-white/40 self-stretch"></div>
+                                                    {/* Vertical dotted separator - hidden on mobile, shown on desktop */}
+                                                    <div className="hidden md:block border-l border-dotted border-white/40 self-stretch"></div>
 
-                                                    {/* Right column - Text */}
-                                                    <div className="w-3/4">
-                                                        <p className="text-sm opacity-95 leading-relaxed text-left">
+                                                    {/* Text - full width on mobile, 3/4 on desktop */}
+                                                    <div className="w-full md:w-3/4">
+                                                        <p className="text-sm opacity-95 leading-relaxed text-center md:text-left">
                                                             As a <strong>{topResult.name}</strong>, you {(() => {
                                                                 const strengthsMap = {
                                                                     'Agape Giver': { main: 'show up when people are hurting with steady, dependable care', secondary: 'keep walking with people through challenges instead of stepping back' },
