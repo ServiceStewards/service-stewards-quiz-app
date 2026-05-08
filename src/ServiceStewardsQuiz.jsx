@@ -387,10 +387,22 @@ const ServiceStewardsQuiz = () => {
         // Show full results breakdown page
         setIsPremium(true);
         setTimeout(() => {
-            window.scrollTo(0, 0);
+            window.scrollTo(0, 0);f
         }, 300);
     };
     // END: USER INPUT HANDLING
+
+    // START: NETLIFY FUNCTION CALLER
+const calculateScoresFromServer = async (answersToScore) => {
+    const response = await fetch('/.netlify/functions/score', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ answers: answersToScore })
+    });
+    if (!response.ok) throw new Error('Scoring function failed');
+    return await response.json();
+};
+// END: NETLIFY FUNCTION CALLER
 
     // START: SCORE CALCULATION / SCORING LOGIC
     const calculateScores = () => {
