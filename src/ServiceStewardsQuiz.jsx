@@ -987,7 +987,7 @@ const ServiceStewardsQuiz = () => {
                 tiedProfiles: topResult.tiedWith || [],
                 selectedProfileKey: selectedProfileForPurchase || topResult.name,
                 scores: allScores,
-                allAnswers: answers,
+                allAnswers: serverScores.readableAnswers,
 
                 // Group/class metadata
                 group_use: groupUse,
