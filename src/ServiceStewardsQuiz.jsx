@@ -67,205 +67,204 @@ const ServiceStewardsQuiz = () => {
     // START: QUIZ DATA SETUP
     // All 20 questions with correct archetype mapping from the clean scoring matrix
     const questions = [
-
         {
             id: 1,
             question: "What usually moves you to help someone?",
             answers: [
-                { text: "They have a need I can meet, and love means I show up.", archetype: "Agape Giver" },
-                { text: "I believe it's simply the right thing to do.", archetype: "Principled Giver" },
-                { text: "I feel drawn to be present and listen deeply.", archetype: "Sacred Listener" },
-                { text: "I start thinking about how I could make a lasting difference.", archetype: "Practical Helper" }
+                { text: "They have a need I can meet, and love means I show up." },
+                { text: "I believe it's simply the right thing to do." },
+                { text: "I feel drawn to be present and listen deeply." },
+                { text: "I start thinking about how I could make a lasting difference." }
             ]
         },
         {
             id: 2,
             question: "If someone criticized the way you helped—or imagine it might happen—how would you respond?",
             answers: [
-                { text: "I check my motives—there might be truth in it.", archetype: "Skeptical Servant" },
-                { text: "I welcome the conversation—we're both learning.", archetype: "Mutual Partner" },
-                { text: "If I've done what I believe is right, I stand by it.", archetype: "Principled Giver" },
-                { text: "I reflect quietly, but it won't stop me from caring.", archetype: "Compassionate Witness" }
+                { text: "I check my motives—there might be truth in it." },
+                { text: "I welcome the conversation—we're both learning." },
+                { text: "If I've done what I believe is right, I stand by it." },
+                { text: "I reflect quietly, but it won't stop me from caring." }
             ]
         },
         {
             id: 3,
             question: "When you see someone struggling but don't know their story…",
             answers: [
-                { text: "I listen first—people need to be seen before anything else.", archetype: "Sacred Listener" },
-                { text: "I help. Their need matters more than their past.", archetype: "Agape Giver" },
-                { text: "I ask whether helping now would truly empower or just soothe.", archetype: "Skeptical Servant" },
-                { text: "I wonder how they might grow if I help the right way.", archetype: "Virtue Builder" }
+                { text: "I listen first—people need to be seen before anything else." },
+                { text: "I help. Their need matters more than their past." },
+                { text: "I ask whether helping now would truly empower or just soothe." },
+                { text: "I wonder how they might grow if I help the right way." }
             ]
         },
         {
             id: 4,
             question: "If your time or energy is limited, how do you decide who to help?",
             answers: [
-                { text: "I try to help where I can make the biggest long-term difference.", archetype: "Practical Helper" },
-                { text: "I support those who are also working to grow.", archetype: "Virtue Builder" },
-                { text: "I focus on whoever needs help most urgently.", archetype: "Agape Giver" },
-                { text: "I pause and make sure I'm not stepping in as a savior.", archetype: "Skeptical Servant" }
+                { text: "I try to help where I can make the biggest long-term difference." },
+                { text: "I support those who are also working to grow." },
+                { text: "I focus on whoever needs help most urgently." },
+                { text: "I pause and make sure I'm not stepping in as a savior." }
             ]
         },
         {
             id: 5,
             question: "What makes the help you give feel truly meaningful?",
             answers: [
-                { text: "It's offered freely, without expecting anything back.", archetype: "Compassionate Witness" },
-                { text: "It strengthens someone in the long run.", archetype: "Virtue Builder" },
-                { text: "It respects both people—neither one is higher or lower.", archetype: "Mutual Partner" },
-                { text: "It flows from strong values, no matter the outcome.", archetype: "Principled Giver" }
+                { text: "It's offered freely, without expecting anything back." },
+                { text: "It strengthens someone in the long run." },
+                { text: "It respects both people—neither one is higher or lower." },
+                { text: "It flows from strong values, no matter the outcome." }
             ]
         },
         {
             id: 6,
             question: "How do you think about setting boundaries when helping others?",
             answers: [
-                { text: "Boundaries protect both people and keep things clear.", archetype: "Mutual Partner" },
-                { text: "If the need is real, I try not to let my discomfort stop me.", archetype: "Sacred Listener" },
-                { text: "I don't set limits lightly—I've seen help go wrong without them.", archetype: "Skeptical Servant" },
-                { text: "Limits matter—but love is still the heart of it.", archetype: "Agape Giver" }
+                { text: "Boundaries protect both people and keep things clear." },
+                { text: "If the need is real, I try not to let my discomfort stop me." },
+                { text: "I don't set limits lightly—I've seen help go wrong without them." },
+                { text: "Limits matter—but love is still the heart of it." }
             ]
         },
         {
             id: 7,
             question: "After you've helped someone, what matters most to you?",
             answers: [
-                { text: "That I stayed true to my values.", archetype: "Principled Giver" },
-                { text: "That my help made a real difference.", archetype: "Practical Helper" },
-                { text: "That they felt seen and truly cared for.", archetype: "Sacred Listener" },
-                { text: "That they didn't feel alone.", archetype: "Compassionate Witness" }
+                { text: "That I stayed true to my values." },
+                { text: "That my help made a real difference." },
+                { text: "That they felt seen and truly cared for." },
+                { text: "That they didn't feel alone." }
             ]
         },
         {
             id: 8,
             question: "How do you view systems that provide help (nonprofits, churches, aid programs)?",
             answers: [
-                { text: "They're tools—not a replacement for compassion.", archetype: "Agape Giver" },
-                { text: "They should empower people—not just offer support.", archetype: "Virtue Builder" },
-                { text: "They can create change if they're well-run and informed by data.", archetype: "Practical Helper" },
-                { text: "They're necessary—but they should always be questioned.", archetype: "Skeptical Servant" }
+                { text: "They're tools—not a replacement for compassion." },
+                { text: "They should empower people—not just offer support." },
+                { text: "They can create change if they're well-run and informed by data." },
+                { text: "They're necessary—but they should always be questioned." }
             ]
         },
         {
             id: 9,
             question: "Which of these most reflects your view of helping others?",
             answers: [
-                { text: "I help when I can truly be present—not just fix things.", archetype: "Compassionate Witness" },
-                { text: "I help because it's what goodness or God asks of me.", archetype: "Principled Giver" },
-                { text: "I help when the motive and method both feel right.", archetype: "Skeptical Servant" },
-                { text: "Helping begins by seeing, hearing, and understanding—then responding.", archetype: "Sacred Listener" }
+                { text: "I help when I can truly be present—not just fix things." },
+                { text: "I help because it's what goodness or God asks of me." },
+                { text: "I help when the motive and method both feel right." },
+                { text: "Helping begins by seeing, hearing, and understanding—then responding." }
             ]
         },
         {
             id: 10,
             question: "When does it feel like real service to you?",
             answers: [
-                { text: "When the help doesn't hold someone back or build dependence.", archetype: "Virtue Builder" },
-                { text: "When it's done without power games or pressure.", archetype: "Mutual Partner" },
-                { text: "When someone's life—or day—is a little easier.", archetype: "Agape Giver" },
-                { text: "When the outcome matches the effort.", archetype: "Practical Helper" }
+                { text: "When the help doesn't hold someone back or build dependence." },
+                { text: "When it's done without power games or pressure." },
+                { text: "When someone's life—or day—is a little easier." },
+                { text: "When the outcome matches the effort." }
             ]
         },
         {
             id: 11,
             question: "How do you feel if someone you help doesn't change or say thank you?",
             answers: [
-                { text: "I ask myself if I helped too soon—or for the wrong reasons.", archetype: "Skeptical Servant" },
-                { text: "I reflect on what I can learn and do better next time.", archetype: "Virtue Builder" },
-                { text: "I wonder if I helped in a way that protected their dignity.", archetype: "Mutual Partner" },
-                { text: "I remind myself that love isn't about the outcome.", archetype: "Agape Giver" }
+                { text: "I ask myself if I helped too soon—or for the wrong reasons." },
+                { text: "I reflect on what I can learn and do better next time." },
+                { text: "I wonder if I helped in a way that protected their dignity." },
+                { text: "I remind myself that love isn't about the outcome." }
             ]
         },
         {
             id: 12,
             question: "What's the most honest reason you help others?",
             answers: [
-                { text: "Because people shouldn't have to earn the basics.", archetype: "Agape Giver" },
-                { text: "Because presence is often more powerful than fixing.", archetype: "Compassionate Witness" },
-                { text: "Because I was taught to do what's right.", archetype: "Principled Giver" },
-                { text: "Because helping gives my life meaning.", archetype: "Virtue Builder" }
+                { text: "Because people shouldn't have to earn the basics." },
+                { text: "Because presence is often more powerful than fixing." },
+                { text: "Because I was taught to do what's right." },
+                { text: "Because helping gives my life meaning." }
             ]
         },
         {
             id: 13,
             question: "What frustrates you most about how service is done today?",
             answers: [
-                { text: "It's too focused on scaling and not enough on people.", archetype: "Sacred Listener" },
-                { text: "It feels more like a performance than something real.", archetype: "Skeptical Servant" },
-                { text: "It creates dependence instead of growth.", archetype: "Virtue Builder" },
-                { text: "It forgets that service should be a two-way connection, not one side giving and the other just receiving.", archetype: "Mutual Partner" }
+                { text: "It's too focused on scaling and not enough on people." },
+                { text: "It feels more like a performance than something real." },
+                { text: "It creates dependence instead of growth." },
+                { text: "It forgets that service should be a two-way connection, not one side giving and the other just receiving." }
             ]
         },
         {
             id: 14,
             question: "How do you feel about being recognized or thanked for helping?",
             answers: [
-                { text: "I value it when it reflects true impact.", archetype: "Practical Helper" },
-                { text: "I avoid it if it shifts the focus to me.", archetype: "Skeptical Servant" },
-                { text: "I don't expect it—it's not why I help.", archetype: "Compassionate Witness" },
-                { text: "I appreciate it, but I don't need it.", archetype: "Principled Giver" }
+                { text: "I value it when it reflects true impact." },
+                { text: "I avoid it if it shifts the focus to me." },
+                { text: "I don't expect it—it's not why I help." },
+                { text: "I appreciate it, but I don't need it." }
             ]
         },
         {
             id: 15,
             question: "Before you agree to help someone, what matters most in your decision?",
             answers: [
-                { text: "Whether it aligns with my values and boundaries.", archetype: "Principled Giver" },
-                { text: "Whether the need is urgent or critical.", archetype: "Agape Giver" },
-                { text: "Whether I have the emotional space to be present.", archetype: "Sacred Listener" },
-                { text: "Whether my help could make a lasting impact.", archetype: "Virtue Builder" }
+                { text: "Whether it aligns with my values and boundaries." },
+                { text: "Whether the need is urgent or critical." },
+                { text: "Whether I have the emotional space to be present." },
+                { text: "Whether my help could make a lasting impact." }
             ]
         },
         {
             id: 16,
             question: "When someone opens up about a hard experience, you usually...",
             answers: [
-                { text: "Affirm their worth and make sure they don't feel alone.", archetype: "Compassionate Witness" },
-                { text: "Focus on what kind of support would actually help.", archetype: "Practical Helper" },
-                { text: "Try to build mutual trust and connection.", archetype: "Mutual Partner" },
-                { text: "Quiet your mind and offer your full attention.", archetype: "Sacred Listener" }
+                { text: "Affirm their worth and make sure they don't feel alone." },
+                { text: "Focus on what kind of support would actually help." },
+                { text: "Try to build mutual trust and connection." },
+                { text: "Quiet your mind and offer your full attention." }
             ]
         },
         {
             id: 17,
             question: "What would make you hesitate to help someone?",
             answers: [
-                { text: "If it feels like no one's really seeing their pain.", archetype: "Compassionate Witness" },
-                { text: "If the help doesn't align with my values or long-term convictions.", archetype: "Principled Giver" },
-                { text: "If I'm unsure what they truly need.", archetype: "Practical Helper" },
-                { text: "If I can't show up in a way that respects both of us.", archetype: "Mutual Partner" }
+                { text: "If it feels like no one's really seeing their pain." },
+                { text: "If the help doesn't align with my values or long-term convictions." },
+                { text: "If I'm unsure what they truly need." },
+                { text: "If I can't show up in a way that respects both of us." }
             ]
         },
         {
             id: 18,
             question: "What kind of service moment sticks with you the longest?",
             answers: [
-                { text: "When someone allowed me to witness their story.", archetype: "Sacred Listener" },
-                { text: "When both of us felt respected and seen.", archetype: "Mutual Partner" },
-                { text: "When the person felt comforted during something hard.", archetype: "Compassionate Witness" },
-                { text: "When the help created change that really lasted.", archetype: "Practical Helper" }
+                { text: "When someone allowed me to witness their story." },
+                { text: "When both of us felt respected and seen." },
+                { text: "When the person felt comforted during something hard." },
+                { text: "When the help created change that really lasted." }
             ]
         },
         {
             id: 19,
             question: "What gives you joy when serving others?",
             answers: [
-                { text: "Seeing someone's spirit or confidence grow.", archetype: "Virtue Builder" },
-                { text: "Feeling like I truly connected with the person.", archetype: "Sacred Listener" },
-                { text: "Knowing I stayed true to my values.", archetype: "Principled Giver" },
-                { text: "Making someone's burden feel a little lighter.", archetype: "Agape Giver" }
+                { text: "Seeing someone's spirit or confidence grow." },
+                { text: "Feeling like I truly connected with the person." },
+                { text: "Knowing I stayed true to my values." },
+                { text: "Making someone's burden feel a little lighter." }
             ]
         },
         {
             id: 20,
             question: "In group service, what role do you usually take?",
             answers: [
-                { text: "I help others find their voice and contribute meaningfully.", archetype: "Mutual Partner" },
-                { text: "I think about how to make the effort count long-term.", archetype: "Practical Helper" },
-                { text: "I try to keep things human and thoughtful, even if it's organized.", archetype: "Skeptical Servant" },
-                { text: "I quietly watch for people who might feel unseen or left out.", archetype: "Compassionate Witness" }
+                { text: "I help others find their voice and contribute meaningfully." },
+                { text: "I think about how to make the effort count long-term." },
+                { text: "I try to keep things human and thoughtful, even if it's organized." },
+                { text: "I quietly watch for people who might feel unseen or left out." }
             ]
         }
     ];
@@ -339,6 +338,7 @@ const ServiceStewardsQuiz = () => {
     const [showEmailCapture, setShowEmailCapture] = useState(false);
     const [selectedAnswer, setSelectedAnswer] = useState('');
     const [isPremium, setIsPremium] = useState(false);
+    const [serverResults, setServerResults] = useState(null);
     const [hasStarted, setHasStarted] = useState(false);
 
     // Purchase button state
@@ -365,7 +365,7 @@ const ServiceStewardsQuiz = () => {
         if (selectedAnswer !== '') {
             const newAnswers = {
                 ...answers,
-                [currentQuestion]: questions[currentQuestion].answers[selectedAnswer]
+                [currentQuestion]: selectedAnswer
             };
             setAnswers(newAnswers);
 
@@ -387,22 +387,22 @@ const ServiceStewardsQuiz = () => {
         // Show full results breakdown page
         setIsPremium(true);
         setTimeout(() => {
-            window.scrollTo(0, 0);f
+            window.scrollTo(0, 0); f
         }, 300);
     };
     // END: USER INPUT HANDLING
 
     // START: NETLIFY FUNCTION CALLER
-const calculateScoresFromServer = async (answersToScore) => {
-    const response = await fetch('/.netlify/functions/score', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ answers: answersToScore })
-    });
-    if (!response.ok) throw new Error('Scoring function failed');
-    return await response.json();
-};
-// END: NETLIFY FUNCTION CALLER
+    const calculateScoresFromServer = async (answersToScore) => {
+        const response = await fetch('/.netlify/functions/score', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ answers: answersToScore })
+        });
+        if (!response.ok) throw new Error('Scoring function failed');
+        return await response.json();
+    };
+    // END: NETLIFY FUNCTION CALLER
 
     // START: SCORE CALCULATION / SCORING LOGIC
     const calculateScores = () => {
@@ -946,10 +946,12 @@ const calculateScoresFromServer = async (answersToScore) => {
         setSubmitError('');
 
         try {
-            // Get results data
-            const topResult = getTopArchetype();
-            const secondResult = getSecondArchetype();
-            const allScores = calculateScores();
+            // Get results data from Netlify function
+            const serverScores = await calculateScoresFromServer(answers);
+            const topResult = serverScores.topResult;
+            const secondResult = serverScores.secondResult;
+            const allScores = serverScores.scores;
+            setServerResults(serverScores);
 
             // Determine tie scenario and build tied profiles string
             let tieScenario = 'single';
@@ -1263,9 +1265,9 @@ const calculateScoresFromServer = async (answersToScore) => {
 
     // START: RESULTS SECTION / RESULT DISPLAY LOGIC
     if (showResults) {
-        const topResult = getTopArchetype();
-        const secondResult = getSecondArchetype();
-        const allScores = calculateScores();
+        const topResult = serverResults.topResult;
+        const secondResult = serverResults.secondResult;
+        const allScores = serverResults.scores;
 
         const topIconUrl = archetypes[topResult.name].iconUrl;
         const secondIconUrl = archetypes[secondResult.name].iconUrl;
@@ -1850,7 +1852,7 @@ const calculateScoresFromServer = async (answersToScore) => {
                                         className="inline-flex flex-col items-center justify-center px-10 py-4 rounded-full font-semibold text-center transition-all duration-200 bg-[#12C4A4] text-white border-2 border-[#12C4A4] hover:bg-[#0fa28a] hover:border-[#0fa28a] shadow-sm hover:shadow-md min-w-[280px]"
                                     >
                                         <span className="text-lg font-semibold leading-tight">
-                                            Get your Profile's Guide
+                                            Get your Top Profile's Guide
                                         </span>
                                         <span className="text-xl opacity-95 mt-1 font-medium">$14</span>
                                     </button>
