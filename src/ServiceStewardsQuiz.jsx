@@ -64,8 +64,7 @@ const ServiceStewardsQuiz = () => {
 
     // END: PROFILE DATA FOR CHECKOUT
 
-    // START: QUIZ DATA SETUP
-    // All 20 questions with correct archetype mapping from the clean scoring matrix
+// START: QUIZ DATA SETUP
     const questions = [
         {
             id: 1,
@@ -79,7 +78,7 @@ const ServiceStewardsQuiz = () => {
         },
         {
             id: 2,
-            question: "If someone criticized the way you helped—or imagine it might happen—how would you respond?",
+            question: "Someone criticizes how you help. How do you respond?",
             answers: [
                 { text: "I ask whether there's evidence that a different approach would work better." },
                 { text: "I welcome the conversation—we're both learning." },
@@ -169,11 +168,11 @@ const ServiceStewardsQuiz = () => {
         },
         {
             id: 11,
-            question: "How do you feel if someone you help doesn't change or say thank you?",
+            question: "How do you feel if someone you help doesn't change or improve?",
             answers: [
-                { text: "I know people in crisis may not have the capacity to express gratitude." },
-                { text: "I reflect on what I can learn and do better next time." },
-                { text: "I wonder if I helped in a way that protected their dignity." },
+                { text: "I wonder if I addressed the real need, rather than just the obvious one." },
+                { text: "I feel like I failed them and start thinking about what I could do differently next time." },
+                { text: "I would be concerned they felt they couldn't trust me." },
                 { text: "I remind myself that love isn't about the outcome." }
             ]
         },
@@ -201,10 +200,10 @@ const ServiceStewardsQuiz = () => {
             id: 14,
             question: "How do you feel about being recognized or thanked for helping?",
             answers: [
-                { text: "I value it when it confirms the help actually worked." },
-                { text: "Recognition is nice, but I'm more concerned with the results of my help." },
-                { text: "I don't expect it—it's not why I help." },
-                { text: "I appreciate it, but I don't need it." }
+                { text: "I appreciate when people notice the help I provided." },
+                { text: "I care more about the outcome than being thanked." },
+                { text: "Being there for someone matters more than being recognized." },
+                { text: "I appreciate being thanked, but I would have helped either way." }
             ]
         },
         {
@@ -262,7 +261,7 @@ const ServiceStewardsQuiz = () => {
             question: "In group service, what role do you usually take?",
             answers: [
                 { text: "I help others find their voice and contribute meaningfully." },
-                { text: "I think about how to make the group's help genuinely useful." },
+                { text: "I naturally help turn ideas into practical tasks." },
                 { text: "I help the group think carefully about what will truly help before we jump in." },
                 { text: "I quietly watch for people who might feel unseen or left out." }
             ]

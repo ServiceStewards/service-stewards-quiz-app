@@ -1,167 +1,149 @@
 const archetypeMap = {
-    0:  [ "Agape Giver", "Principled Giver", "Sacred Listener", "Practical Helper" ],
-    1:  [ "Skeptical Servant", "Mutual Partner", "Principled Giver", "Compassionate Witness" ],
-    2:  [ "Sacred Listener", "Agape Giver", "Skeptical Servant", "Virtue Builder" ],
-    3:  [ "Practical Helper", "Virtue Builder", "Agape Giver", "Skeptical Servant" ],
-    4:  [ "Compassionate Witness", "Virtue Builder", "Mutual Partner", "Principled Giver" ],
-    5:  [ "Mutual Partner", "Sacred Listener", "Skeptical Servant", "Agape Giver" ],
-    6:  [ "Principled Giver", "Practical Helper", "Sacred Listener", "Compassionate Witness" ],
-    7:  [ "Agape Giver", "Virtue Builder", "Practical Helper", "Skeptical Servant" ],
-    8:  [ "Compassionate Witness", "Principled Giver", "Skeptical Servant", "Sacred Listener" ],
-    9:  [ "Virtue Builder", "Mutual Partner", "Agape Giver", "Practical Helper" ],
-    10: [ "Skeptical Servant", "Virtue Builder", "Mutual Partner", "Agape Giver" ],
-    11: [ "Agape Giver", "Compassionate Witness", "Principled Giver", "Virtue Builder" ],
-    12: [ "Sacred Listener", "Skeptical Servant", "Virtue Builder", "Mutual Partner" ],
-    13: [ "Practical Helper", "Skeptical Servant", "Compassionate Witness", "Principled Giver" ],
-    14: [ "Principled Giver", "Agape Giver", "Sacred Listener", "Virtue Builder" ],
-    15: [ "Compassionate Witness", "Practical Helper", "Mutual Partner", "Sacred Listener" ],
-    16: [ "Compassionate Witness", "Principled Giver", "Practical Helper", "Mutual Partner" ],
-    17: [ "Sacred Listener", "Mutual Partner", "Compassionate Witness", "Practical Helper" ],
-    18: [ "Virtue Builder", "Sacred Listener", "Principled Giver", "Agape Giver" ],
-    19: [ "Mutual Partner", "Practical Helper", "Skeptical Servant", "Compassionate Witness" ]
+    0: ["Agape Giver", "Principled Giver", "Sacred Listener", "Practical Helper"],
+    1: ["Skeptical Servant", "Mutual Partner", "Principled Giver", "Compassionate Witness"],
+    2: ["Sacred Listener", "Agape Giver", "Skeptical Servant", "Virtue Builder"],
+    3: ["Practical Helper", "Virtue Builder", "Agape Giver", "Skeptical Servant"],
+    4: ["Compassionate Witness", "Virtue Builder", "Mutual Partner", "Principled Giver"],
+    5: ["Mutual Partner", "Sacred Listener", "Skeptical Servant", "Agape Giver"],
+    6: ["Principled Giver", "Practical Helper", "Sacred Listener", "Compassionate Witness"],
+    7: ["Agape Giver", "Virtue Builder", "Practical Helper", "Skeptical Servant"],
+    8: ["Compassionate Witness", "Principled Giver", "Skeptical Servant", "Sacred Listener"],
+    9: ["Virtue Builder", "Mutual Partner", "Agape Giver", "Practical Helper"],
+    10: ["Skeptical Servant", "Virtue Builder", "Mutual Partner", "Agape Giver"],
+    11: ["Agape Giver", "Compassionate Witness", "Principled Giver", "Virtue Builder"],
+    12: ["Sacred Listener", "Skeptical Servant", "Virtue Builder", "Mutual Partner"],
+    13: ["Practical Helper", "Skeptical Servant", "Compassionate Witness", "Principled Giver"],
+    14: ["Principled Giver", "Agape Giver", "Sacred Listener", "Virtue Builder"],
+    15: ["Compassionate Witness", "Practical Helper", "Mutual Partner", "Sacred Listener"],
+    16: ["Compassionate Witness", "Principled Giver", "Practical Helper", "Mutual Partner"],
+    17: ["Sacred Listener", "Mutual Partner", "Compassionate Witness", "Practical Helper"],
+    18: ["Virtue Builder", "Sacred Listener", "Principled Giver", "Agape Giver"],
+    19: ["Mutual Partner", "Practical Helper", "Skeptical Servant", "Compassionate Witness"]
 };
 
 const answerTextMap = {
-    0: [ // Q1
+    0:  [
         "They have a need I can meet, and love means I show up.",
-        "I believe it’s simply the right thing to do.",
+        "I believe it's simply the right thing to do.",
         "I feel drawn to be present and listen deeply.",
         "I start thinking about what would truly lighten their burden."
     ],
-
-    1: [ // Q2
+    1:  [
         "I ask whether there's evidence that a different approach would work better.",
-        "I welcome the conversation—we’re both learning.",
-        "If I’ve done what I believe is right, I stand by it.",
-        "I reflect quietly, but it won’t stop me from caring."
+        "I welcome the conversation—we're both learning.",
+        "If I've done what I believe is right, I stand by it.",
+        "I reflect quietly, but it won't stop me from caring."
     ],
-
-    2: [ // Q3
+    2:  [
         "I listen first—people need to be seen before anything else.",
         "I help. Their need matters more than their past.",
         "I start thinking about what approach is most likely to truly help them.",
         "I wonder how they might grow if I help the right way."
     ],
-
-    3: [ // Q4
+    3:  [
         "I try to help where I can be most useful.",
         "I support those who are also working to grow.",
         "I focus on whoever needs help most urgently.",
         "I pause to consider whether my help addresses the real need."
     ],
-
-    4: [ // Q5
+    4:  [
         "It reminds someone they don't have to carry this alone.",
         "It strengthens someone in the long run.",
         "It respects both people—neither one is higher or lower.",
         "It flows from strong values, no matter the outcome."
     ],
-
-    5: [ // Q6
+    5:  [
         "Boundaries protect both people and keep things clear.",
         "If someone needs to be heard, I try not to let my discomfort keep me from listening.",
-        "I don’t set limits lightly—I’ve seen help go wrong without them.",
+        "I don't set limits lightly—I've seen help go wrong without them.",
         "Limits matter—but love is still the heart of it."
     ],
-
-    6: [ // Q7
+    6:  [
         "That I stayed true to my values.",
         "That it solved a real need they were carrying.",
         "That they felt seen and truly cared for.",
-        "That they didn’t feel alone."
+        "That they didn't feel alone."
     ],
-
-    7: [ // Q8
-        "They’re tools—not a replacement for compassion.",
+    7:  [
+        "They're tools—not a replacement for compassion.",
         "They should empower people—not just offer support.",
         "They work best when they help people in concrete ways.",
-        "They’re necessary—but they should always be questioned."
+        "They're necessary—but they should always be questioned."
     ],
-
-    8: [ // Q9
+    8:  [
         "I help when I can truly be present—not just fix things.",
-        "I help because it’s what goodness or God asks of me.",
+        "I help because it's what goodness or God asks of me.",
         "I help when the motive and method both feel right.",
         "The most meaningful help begins with deeply understanding the person first."
     ],
-
-    9: [ // Q10
-        "When the help doesn’t hold someone back or build dependence.",
-        "When it’s done without power games or pressure.",
-        "When someone’s life—or day—is a little easier.",
+    9:  [
+        "When the help doesn't hold someone back or build dependence.",
+        "When it's done without power games or pressure.",
+        "When someone's life—or day—is a little easier.",
         "When the help actually solves the problem."
     ],
-
-    10: [ // Q11
-        "I know people in crisis may not have the capacity to express gratitude.",
-        "I reflect on what I can learn and do better next time.",
-        "I wonder if I helped in a way that protected their dignity.",
-        "I remind myself that love isn’t about the outcome."
+    10: [
+        "I wonder if I addressed the real need rather than just the obvious one.",
+        "I feel like I failed them and start thinking about what I could do differently next time.",
+        "I would be concerned they felt they couldn't trust me.",
+        "I remind myself that love isn't about the outcome."
     ],
-
-    11: [ // Q12
-        "Because people shouldn’t have to earn the basics.",
+    11: [
+        "Because people shouldn't have to earn the basics.",
         "Because presence is often more powerful than fixing.",
-        "Because I was taught to do what’s right.",
+        "Because I was taught to do what's right.",
         "Because helping people grow is one of the greatest gifts I can offer."
     ],
-
-    12: [ // Q13
-        "It’s too focused on scaling and not enough on people.",
+    12: [
+        "It's too focused on scaling and not enough on people.",
         "It feels more like a performance than something real.",
         "It creates dependence instead of growth.",
         "It forgets that service should be a two-way connection, not one side giving and the other just receiving."
     ],
-
-    13: [ // Q14
-        "I value it when it confirms the help actually worked.",
-        "Recognition is nice, but I'm more concerned with the results of my help.",
-        "I don’t expect it—it’s not why I help.",
-        "I appreciate it, but I don’t need it."
+    13: [
+        "I appreciate when people notice the help I provided.",
+        "I care more about the outcome than being thanked.",
+        "Being there for someone matters more than being recognized.",
+        "I appreciate being thanked, but I would have helped either way."
     ],
-
-    14: [ // Q15
+    14: [
         "Whether it aligns with my values and boundaries.",
         "Whether the need is urgent or critical.",
         "Whether I have the emotional space to be present.",
         "Whether my help will strengthen them for the future."
     ],
-
-    15: [ // Q16
+    15: [
         "Make sure they don't have to carry it alone.",
         "Figure out the most practical way I can help.",
         "Try to build mutual trust and connection.",
         "Quiet your mind and offer your full attention."
     ],
-
-    16: [ // Q17
-        "If I’d be helping in action but not truly present in heart or attention.",
-        "If the help doesn’t align with my values or long-term convictions.",
+    16: [
+        "If I'd be helping in action but not truly present in heart or attention.",
+        "If the help doesn't align with my values or long-term convictions.",
         "If I don't think my help will actually help.",
-        "If I can’t show up in a way that respects both of us."
+        "If I can't show up in a way that respects both of us."
     ],
-
-    17: [ // Q18
+    17: [
         "When someone allowed me to witness their story.",
         "When both of us felt respected and seen.",
         "When the person felt comforted during something hard.",
         "When the right help solved the right problem."
     ],
-
-    18: [ // Q19
-        "Seeing someone’s spirit or confidence grow.",
+    18: [
+        "Seeing someone's spirit or confidence grow.",
         "Feeling like I truly connected with the person.",
         "Knowing I stayed true to my values.",
         "Making someone's burden a little lighter."
     ],
-
-    19: [ // Q20
+    19: [
         "I help others find their voice and contribute meaningfully.",
-        "I think about how to make the group's help genuinely useful.",
+        "I naturally help turn ideas into practical tasks.",
         "I help the group think carefully about what will truly help before we jump in.",
         "I quietly watch for people who might feel unseen or left out."
     ]
 };
+
 
 const archetypes = [
     'Agape Giver', 'Sacred Listener', 'Principled Giver',
