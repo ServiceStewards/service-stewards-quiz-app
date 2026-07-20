@@ -22,26 +22,145 @@ const archetypeMap = {
 };
 
 const answerTextMap = {
-    0:  [ "They have a need I can meet, and love means I show up.", "I believe it's simply the right thing to do.", "I feel drawn to be present and listen deeply.", "I start thinking about how I could make a lasting difference." ],
-    1:  [ "I check my motives—there might be truth in it.", "I welcome the conversation—we're both learning.", "If I've done what I believe is right, I stand by it.", "I reflect quietly, but it won't stop me from caring." ],
-    2:  [ "I listen first—people need to be seen before anything else.", "I help. Their need matters more than their past.", "I ask whether helping now would truly empower or just soothe.", "I wonder how they might grow if I help the right way." ],
-    3:  [ "I try to help where I can make the biggest long-term difference.", "I support those who are also working to grow.", "I focus on whoever needs help most urgently.", "I pause and make sure I'm not stepping in as a savior." ],
-    4:  [ "It's offered freely, without expecting anything back.", "It strengthens someone in the long run.", "It respects both people—neither one is higher or lower.", "It flows from strong values, no matter the outcome." ],
-    5:  [ "Boundaries protect both people and keep things clear.", "If the need is real, I try not to let my discomfort stop me.", "I don't set limits lightly—I've seen help go wrong without them.", "Limits matter—but love is still the heart of it." ],
-    6:  [ "That I stayed true to my values.", "That my help made a real difference.", "That they felt seen and truly cared for.", "That they didn't feel alone." ],
-    7:  [ "They're tools—not a replacement for compassion.", "They should empower people—not just offer support.", "They can create change if they're well-run and informed by data.", "They're necessary—but they should always be questioned." ],
-    8:  [ "I help when I can truly be present—not just fix things.", "I help because it's what goodness or God asks of me.", "I help when the motive and method both feel right.", "Helping begins by seeing, hearing, and understanding—then responding." ],
-    9:  [ "When the help doesn't hold someone back or build dependence.", "When it's done without power games or pressure.", "When someone's life—or day—is a little easier.", "When the outcome matches the effort." ],
-    10: [ "I ask myself if I helped too soon—or for the wrong reasons.", "I reflect on what I can learn and do better next time.", "I wonder if I helped in a way that protected their dignity.", "I remind myself that love isn't about the outcome." ],
-    11: [ "Because people shouldn't have to earn the basics.", "Because presence is often more powerful than fixing.", "Because I was taught to do what's right.", "Because helping gives my life meaning." ],
-    12: [ "It's too focused on scaling and not enough on people.", "It feels more like a performance than something real.", "It creates dependence instead of growth.", "It forgets that service should be a two-way connection, not one side giving and the other just receiving." ],
-    13: [ "I value it when it reflects true impact.", "I avoid it if it shifts the focus to me.", "I don't expect it—it's not why I help.", "I appreciate it, but I don't need it." ],
-    14: [ "Whether it aligns with my values and boundaries.", "Whether the need is urgent or critical.", "Whether I have the emotional space to be present.", "Whether my help could make a lasting impact." ],
-    15: [ "Affirm their worth and make sure they don't feel alone.", "Focus on what kind of support would actually help.", "Try to build mutual trust and connection.", "Quiet your mind and offer your full attention." ],
-    16: [ "If it feels like no one's really seeing their pain.", "If the help doesn't align with my values or long-term convictions.", "If I'm unsure what they truly need.", "If I can't show up in a way that respects both of us." ],
-    17: [ "When someone allowed me to witness their story.", "When both of us felt respected and seen.", "When the person felt comforted during something hard.", "When the help created change that really lasted." ],
-    18: [ "Seeing someone's spirit or confidence grow.", "Feeling like I truly connected with the person.", "Knowing I stayed true to my values.", "Making someone's burden feel a little lighter." ],
-    19: [ "I help others find their voice and contribute meaningfully.", "I think about how to make the effort count long-term.", "I try to keep things human and thoughtful, even if it's organized.", "I quietly watch for people who might feel unseen or left out." ]
+    0: [ // Q1
+        "They have a need I can meet, and love means I show up.",
+        "I believe it’s simply the right thing to do.",
+        "I feel drawn to be present and listen deeply.",
+        "I start thinking about what would truly lighten their burden."
+    ],
+
+    1: [ // Q2
+        "I ask whether there's evidence that a different approach would work better.",
+        "I welcome the conversation—we’re both learning.",
+        "If I’ve done what I believe is right, I stand by it.",
+        "I reflect quietly, but it won’t stop me from caring."
+    ],
+
+    2: [ // Q3
+        "I listen first—people need to be seen before anything else.",
+        "I help. Their need matters more than their past.",
+        "I start thinking about what approach is most likely to truly help them.",
+        "I wonder how they might grow if I help the right way."
+    ],
+
+    3: [ // Q4
+        "I try to help where I can be most useful.",
+        "I support those who are also working to grow.",
+        "I focus on whoever needs help most urgently.",
+        "I pause to consider whether my help addresses the real need."
+    ],
+
+    4: [ // Q5
+        "It reminds someone they don't have to carry this alone.",
+        "It strengthens someone in the long run.",
+        "It respects both people—neither one is higher or lower.",
+        "It flows from strong values, no matter the outcome."
+    ],
+
+    5: [ // Q6
+        "Boundaries protect both people and keep things clear.",
+        "If someone needs to be heard, I try not to let my discomfort keep me from listening.",
+        "I don’t set limits lightly—I’ve seen help go wrong without them.",
+        "Limits matter—but love is still the heart of it."
+    ],
+
+    6: [ // Q7
+        "That I stayed true to my values.",
+        "That it solved a real need they were carrying.",
+        "That they felt seen and truly cared for.",
+        "That they didn’t feel alone."
+    ],
+
+    7: [ // Q8
+        "They’re tools—not a replacement for compassion.",
+        "They should empower people—not just offer support.",
+        "They work best when they help people in concrete ways.",
+        "They’re necessary—but they should always be questioned."
+    ],
+
+    8: [ // Q9
+        "I help when I can truly be present—not just fix things.",
+        "I help because it’s what goodness or God asks of me.",
+        "I help when the motive and method both feel right.",
+        "The most meaningful help begins with deeply understanding the person first."
+    ],
+
+    9: [ // Q10
+        "When the help doesn’t hold someone back or build dependence.",
+        "When it’s done without power games or pressure.",
+        "When someone’s life—or day—is a little easier.",
+        "When the help actually solves the problem."
+    ],
+
+    10: [ // Q11
+        "I know people in crisis may not have the capacity to express gratitude.",
+        "I reflect on what I can learn and do better next time.",
+        "I wonder if I helped in a way that protected their dignity.",
+        "I remind myself that love isn’t about the outcome."
+    ],
+
+    11: [ // Q12
+        "Because people shouldn’t have to earn the basics.",
+        "Because presence is often more powerful than fixing.",
+        "Because I was taught to do what’s right.",
+        "Because helping people grow is one of the greatest gifts I can offer."
+    ],
+
+    12: [ // Q13
+        "It’s too focused on scaling and not enough on people.",
+        "It feels more like a performance than something real.",
+        "It creates dependence instead of growth.",
+        "It forgets that service should be a two-way connection, not one side giving and the other just receiving."
+    ],
+
+    13: [ // Q14
+        "I value it when it confirms the help actually worked.",
+        "Recognition is nice, but I'm more concerned with the results of my help.",
+        "I don’t expect it—it’s not why I help.",
+        "I appreciate it, but I don’t need it."
+    ],
+
+    14: [ // Q15
+        "Whether it aligns with my values and boundaries.",
+        "Whether the need is urgent or critical.",
+        "Whether I have the emotional space to be present.",
+        "Whether my help will strengthen them for the future."
+    ],
+
+    15: [ // Q16
+        "Make sure they don't have to carry it alone.",
+        "Figure out the most practical way I can help.",
+        "Try to build mutual trust and connection.",
+        "Quiet your mind and offer your full attention."
+    ],
+
+    16: [ // Q17
+        "If I’d be helping in action but not truly present in heart or attention.",
+        "If the help doesn’t align with my values or long-term convictions.",
+        "If I don't think my help will actually help.",
+        "If I can’t show up in a way that respects both of us."
+    ],
+
+    17: [ // Q18
+        "When someone allowed me to witness their story.",
+        "When both of us felt respected and seen.",
+        "When the person felt comforted during something hard.",
+        "When the right help solved the right problem."
+    ],
+
+    18: [ // Q19
+        "Seeing someone’s spirit or confidence grow.",
+        "Feeling like I truly connected with the person.",
+        "Knowing I stayed true to my values.",
+        "Making someone's burden a little lighter."
+    ],
+
+    19: [ // Q20
+        "I help others find their voice and contribute meaningfully.",
+        "I think about how to make the group's help genuinely useful.",
+        "I help the group think carefully about what will truly help before we jump in.",
+        "I quietly watch for people who might feel unseen or left out."
+    ]
 };
 
 const archetypes = [
