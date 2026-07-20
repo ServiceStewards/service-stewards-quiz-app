@@ -74,14 +74,14 @@ const ServiceStewardsQuiz = () => {
                 { text: "They have a need I can meet, and love means I show up." },
                 { text: "I believe it's simply the right thing to do." },
                 { text: "I feel drawn to be present and listen deeply." },
-                { text: "I start thinking about how I could make a lasting difference." }
+                { text: "I start thinking about what would truly lighten their burden." }
             ]
         },
         {
             id: 2,
             question: "If someone criticized the way you helped—or imagine it might happen—how would you respond?",
             answers: [
-                { text: "I check my motives—there might be truth in it." },
+                { text: "I ask whether there's evidence that a different approach would work better." },
                 { text: "I welcome the conversation—we're both learning." },
                 { text: "If I've done what I believe is right, I stand by it." },
                 { text: "I reflect quietly, but it won't stop me from caring." }
@@ -93,7 +93,7 @@ const ServiceStewardsQuiz = () => {
             answers: [
                 { text: "I listen first—people need to be seen before anything else." },
                 { text: "I help. Their need matters more than their past." },
-                { text: "I ask whether helping now would truly empower or just soothe." },
+                { text: "I start thinking about what approach is most likely to truly help them." },
                 { text: "I wonder how they might grow if I help the right way." }
             ]
         },
@@ -101,17 +101,17 @@ const ServiceStewardsQuiz = () => {
             id: 4,
             question: "If your time or energy is limited, how do you decide who to help?",
             answers: [
-                { text: "I try to help where I can make the biggest long-term difference." },
+                { text: "I try to help where I can be most useful." },
                 { text: "I support those who are also working to grow." },
                 { text: "I focus on whoever needs help most urgently." },
-                { text: "I pause and make sure I'm not stepping in as a savior." }
+                { text: "I pause to consider whether my help addresses the real need." }
             ]
         },
         {
             id: 5,
             question: "What makes the help you give feel truly meaningful?",
             answers: [
-                { text: "It's offered freely, without expecting anything back." },
+                { text: "It reminds someone they don't have to carry this alone." },
                 { text: "It strengthens someone in the long run." },
                 { text: "It respects both people—neither one is higher or lower." },
                 { text: "It flows from strong values, no matter the outcome." }
@@ -122,7 +122,7 @@ const ServiceStewardsQuiz = () => {
             question: "How do you think about setting boundaries when helping others?",
             answers: [
                 { text: "Boundaries protect both people and keep things clear." },
-                { text: "If the need is real, I try not to let my discomfort stop me." },
+                { text: "If someone needs to be heard, I try not to let my discomfort keep me from listening." },
                 { text: "I don't set limits lightly—I've seen help go wrong without them." },
                 { text: "Limits matter—but love is still the heart of it." }
             ]
@@ -132,7 +132,7 @@ const ServiceStewardsQuiz = () => {
             question: "After you've helped someone, what matters most to you?",
             answers: [
                 { text: "That I stayed true to my values." },
-                { text: "That my help made a real difference." },
+                { text: "That it solved a real need they were carrying." },
                 { text: "That they felt seen and truly cared for." },
                 { text: "That they didn't feel alone." }
             ]
@@ -143,7 +143,7 @@ const ServiceStewardsQuiz = () => {
             answers: [
                 { text: "They're tools—not a replacement for compassion." },
                 { text: "They should empower people—not just offer support." },
-                { text: "They can create change if they're well-run and informed by data." },
+                { text: "They work best when they help people in concrete ways." },
                 { text: "They're necessary—but they should always be questioned." }
             ]
         },
@@ -154,7 +154,7 @@ const ServiceStewardsQuiz = () => {
                 { text: "I help when I can truly be present—not just fix things." },
                 { text: "I help because it's what goodness or God asks of me." },
                 { text: "I help when the motive and method both feel right." },
-                { text: "Helping begins by seeing, hearing, and understanding—then responding." }
+                { text: "The most meaningful help begins with deeply understanding the person first." }
             ]
         },
         {
@@ -164,14 +164,14 @@ const ServiceStewardsQuiz = () => {
                 { text: "When the help doesn't hold someone back or build dependence." },
                 { text: "When it's done without power games or pressure." },
                 { text: "When someone's life—or day—is a little easier." },
-                { text: "When the outcome matches the effort." }
+                { text: "When the help actually solves the problem." }
             ]
         },
         {
             id: 11,
             question: "How do you feel if someone you help doesn't change or say thank you?",
             answers: [
-                { text: "I ask myself if I helped too soon—or for the wrong reasons." },
+                { text: "I know people in crisis may not have the capacity to express gratitude." },
                 { text: "I reflect on what I can learn and do better next time." },
                 { text: "I wonder if I helped in a way that protected their dignity." },
                 { text: "I remind myself that love isn't about the outcome." }
@@ -184,7 +184,7 @@ const ServiceStewardsQuiz = () => {
                 { text: "Because people shouldn't have to earn the basics." },
                 { text: "Because presence is often more powerful than fixing." },
                 { text: "Because I was taught to do what's right." },
-                { text: "Because helping gives my life meaning." }
+                { text: "Because helping people grow is one of the greatest gifts I can offer." }
             ]
         },
         {
@@ -201,8 +201,8 @@ const ServiceStewardsQuiz = () => {
             id: 14,
             question: "How do you feel about being recognized or thanked for helping?",
             answers: [
-                { text: "I value it when it reflects true impact." },
-                { text: "I avoid it if it shifts the focus to me." },
+                { text: "I value it when it confirms the help actually worked." },
+                { text: "Recognition is nice, but I'm more concerned with the results of my help." },
                 { text: "I don't expect it—it's not why I help." },
                 { text: "I appreciate it, but I don't need it." }
             ]
@@ -214,15 +214,15 @@ const ServiceStewardsQuiz = () => {
                 { text: "Whether it aligns with my values and boundaries." },
                 { text: "Whether the need is urgent or critical." },
                 { text: "Whether I have the emotional space to be present." },
-                { text: "Whether my help could make a lasting impact." }
+                { text: "Whether my help will strengthen them for the future." }
             ]
         },
         {
             id: 16,
             question: "When someone opens up about a hard experience, you usually...",
             answers: [
-                { text: "Affirm their worth and make sure they don't feel alone." },
-                { text: "Focus on what kind of support would actually help." },
+                { text: "Make sure they don't have to carry it alone." },
+                { text: "Figure out the most practical way I can help." },
                 { text: "Try to build mutual trust and connection." },
                 { text: "Quiet your mind and offer your full attention." }
             ]
@@ -231,9 +231,9 @@ const ServiceStewardsQuiz = () => {
             id: 17,
             question: "What would make you hesitate to help someone?",
             answers: [
-                { text: "If it feels like no one's really seeing their pain." },
+                { text: "If I'd be helping in action but not truly present in heart or attention." },
                 { text: "If the help doesn't align with my values or long-term convictions." },
-                { text: "If I'm unsure what they truly need." },
+                { text: "If I don't think my help will actually help." },
                 { text: "If I can't show up in a way that respects both of us." }
             ]
         },
@@ -244,7 +244,7 @@ const ServiceStewardsQuiz = () => {
                 { text: "When someone allowed me to witness their story." },
                 { text: "When both of us felt respected and seen." },
                 { text: "When the person felt comforted during something hard." },
-                { text: "When the help created change that really lasted." }
+                { text: "When the right help solved the right problem." }
             ]
         },
         {
@@ -254,7 +254,7 @@ const ServiceStewardsQuiz = () => {
                 { text: "Seeing someone's spirit or confidence grow." },
                 { text: "Feeling like I truly connected with the person." },
                 { text: "Knowing I stayed true to my values." },
-                { text: "Making someone's burden feel a little lighter." }
+                { text: "Making someone's burden a little lighter." }
             ]
         },
         {
@@ -262,8 +262,8 @@ const ServiceStewardsQuiz = () => {
             question: "In group service, what role do you usually take?",
             answers: [
                 { text: "I help others find their voice and contribute meaningfully." },
-                { text: "I think about how to make the effort count long-term." },
-                { text: "I try to keep things human and thoughtful, even if it's organized." },
+                { text: "I think about how to make the group's help genuinely useful." },
+                { text: "I help the group think carefully about what will truly help before we jump in." },
                 { text: "I quietly watch for people who might feel unseen or left out." }
             ]
         }

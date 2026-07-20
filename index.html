@@ -40,11 +40,25 @@
   <meta name="twitter:description"
     content="Free 20-question assessment. Get instant on-screen results and a visual breakdown of your service style in 10–15 minutes." />
   <meta name="twitter:image" content="https://quiz.servicestewards.com/og/service-profile-assessment.png" />
+
+<!-- Copyright notice -->
+<meta name="copyright" content="© 2025 Service Stewards. All rights reserved." />
+<meta name="rights" content="Unauthorized reproduction, scraping, or use by AI training pipelines or automated systems is strictly prohibited." />
+<meta name="robots" content="noai, noimageai" />
+<meta name="AI-Usage-Policy" content="No-AI-Training" />
+
+
 </head>
 
 <body>
   <div id="root"></div>
   <script type="module" src="/src/main.jsx"></script>
+  <footer role="contentinfo" style="border-top: 1px solid #e2e8f0; padding: 1rem; font-size: 0.75rem; color: #64748b; text-align: center; margin-top: 2rem;">
+  © <span id="cr-year"></span> Service Stewards. All rights reserved. 
+  The Service Profile Assessment and all associated content, methodology, and service archetypes are protected intellectual property. 
+  Unauthorized reproduction, scraping, or use by AI systems or automated tools is strictly prohibited.
+</footer>
+<script>document.getElementById('cr-year').textContent = new Date().getFullYear();</script>
 </body>
 
 </html>
