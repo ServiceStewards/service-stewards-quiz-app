@@ -231,7 +231,7 @@ const ServiceStewardsQuiz = () => {
             question: "What would make you hesitate to help someone?",
             answers: [
                 { text: "If I'd be helping in action but not truly present in heart or attention." },
-                { text: "If the help doesn't align with my values or long-term convictions." },
+                { text: "If helping meant compromising one of my deeply held beliefs." },
                 { text: "If I don't think my help will be useful." },
                 { text: "If I can't show up in a way that respects both of us." }
             ]

@@ -120,7 +120,7 @@ const answerTextMap = {
     ],
     16: [
         "If I'd be helping in action but not truly present in heart or attention.",
-        "If the help doesn't align with my values or long-term convictions.",
+        "If helping meant compromising one of my deeply held beliefs.",
         "If I don't think my help will be useful.",
         "If I can't show up in a way that respects both of us."
     ],
