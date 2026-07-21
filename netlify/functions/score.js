@@ -35,7 +35,7 @@ const answerTextMap = {
         "I reflect quietly, but it won't stop me from caring."
     ],
     2:  [
-        "I listen first—people need to be seen before anything else.",
+        "I listen first—people need to feel heard before anything else.",
         "I help. Their need matters more than their past.",
         "I start thinking about what approach is most likely to truly help them.",
         "I wonder how they might grow if I help the right way."
@@ -49,7 +49,7 @@ const answerTextMap = {
     4:  [
         "It reminds someone they don't have to carry this alone.",
         "It strengthens someone in the long run.",
-        "It respects both people—neither one is higher or lower.",
+        "It respects both giver and receiver—neither one is higher or lower.",
         "It flows from strong values, no matter the outcome."
     ],
     5:  [
@@ -58,16 +58,16 @@ const answerTextMap = {
         "I don't set limits lightly—I've seen help go wrong without them.",
         "Limits matter—but love is still the heart of it."
     ],
-    6:  [
+      6:  [
         "That I stayed true to my values.",
         "That it solved a real need they were carrying.",
-        "That they felt seen and truly cared for.",
-        "That they didn't feel alone."
+        "They felt heard and understood.",
+        "They didn't feel alone."
     ],
     7:  [
         "They're tools—not a replacement for compassion.",
         "They should empower people—not just offer support.",
-        "They work best when they help people in concrete ways.",
+        "They work best when they help people in practical ways.",
         "They're necessary—but they should always be questioned."
     ],
     8:  [
@@ -83,19 +83,19 @@ const answerTextMap = {
         "When the help actually solves the problem."
     ],
     10: [
-        "I wonder if I addressed the real need rather than just the obvious one.",
+        "I wonder if I addressed the real need, rather than just the obvious one.",
         "I feel like I failed them and start thinking about what I could do differently next time.",
         "I would be concerned they felt they couldn't trust me.",
         "I remind myself that love isn't about the outcome."
     ],
     11: [
         "Because people shouldn't have to earn the basics.",
-        "Because presence is often more powerful than fixing.",
+        "Because simply showing up is often more powerful than fixing.",
         "Because I was taught to do what's right.",
         "Because helping people grow is one of the greatest gifts I can offer."
     ],
     12: [
-        "It's too focused on scaling and not enough on people.",
+        "It's too focused on scaling and not enough on individuals.",
         "It feels more like a performance than something real.",
         "It creates dependence instead of growth.",
         "It forgets that service should be a two-way connection, not one side giving and the other just receiving."
@@ -121,7 +121,7 @@ const answerTextMap = {
     16: [
         "If I'd be helping in action but not truly present in heart or attention.",
         "If the help doesn't align with my values or long-term convictions.",
-        "If I don't think my help will actually help.",
+        "If I don't think my help will be useful.",
         "If I can't show up in a way that respects both of us."
     ],
     17: [

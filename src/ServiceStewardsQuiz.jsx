@@ -90,7 +90,7 @@ const ServiceStewardsQuiz = () => {
             id: 3,
             question: "When you see someone struggling but don't know their story…",
             answers: [
-                { text: "I listen first—people need to be seen before anything else." },
+                { text: "I listen first—people need to feel heard before anything else." },
                 { text: "I help. Their need matters more than their past." },
                 { text: "I start thinking about what approach is most likely to truly help them." },
                 { text: "I wonder how they might grow if I help the right way." }
@@ -112,7 +112,7 @@ const ServiceStewardsQuiz = () => {
             answers: [
                 { text: "It reminds someone they don't have to carry this alone." },
                 { text: "It strengthens someone in the long run." },
-                { text: "It respects both people—neither one is higher or lower." },
+                { text: "It respects both giver and receiver—neither one is higher or lower." },
                 { text: "It flows from strong values, no matter the outcome." }
             ]
         },
@@ -132,8 +132,8 @@ const ServiceStewardsQuiz = () => {
             answers: [
                 { text: "That I stayed true to my values." },
                 { text: "That it solved a real need they were carrying." },
-                { text: "That they felt seen and truly cared for." },
-                { text: "That they didn't feel alone." }
+                { text: "They felt heard and understood." },
+                { text: "They didn't feel alone." }
             ]
         },
         {
@@ -142,7 +142,7 @@ const ServiceStewardsQuiz = () => {
             answers: [
                 { text: "They're tools—not a replacement for compassion." },
                 { text: "They should empower people—not just offer support." },
-                { text: "They work best when they help people in concrete ways." },
+                { text: "They work best when they help people in practical ways." },
                 { text: "They're necessary—but they should always be questioned." }
             ]
         },
@@ -181,7 +181,7 @@ const ServiceStewardsQuiz = () => {
             question: "What's the most honest reason you help others?",
             answers: [
                 { text: "Because people shouldn't have to earn the basics." },
-                { text: "Because presence is often more powerful than fixing." },
+                { text: "Because simply showing up is often more powerful than fixing." },
                 { text: "Because I was taught to do what's right." },
                 { text: "Because helping people grow is one of the greatest gifts I can offer." }
             ]
@@ -190,7 +190,7 @@ const ServiceStewardsQuiz = () => {
             id: 13,
             question: "What frustrates you most about how service is done today?",
             answers: [
-                { text: "It's too focused on scaling and not enough on people." },
+                { text: "It's too focused on scaling and not enough on individuals." },
                 { text: "It feels more like a performance than something real." },
                 { text: "It creates dependence instead of growth." },
                 { text: "It forgets that service should be a two-way connection, not one side giving and the other just receiving." }
@@ -232,7 +232,7 @@ const ServiceStewardsQuiz = () => {
             answers: [
                 { text: "If I'd be helping in action but not truly present in heart or attention." },
                 { text: "If the help doesn't align with my values or long-term convictions." },
-                { text: "If I don't think my help will actually help." },
+                { text: "If I don't think my help will be useful." },
                 { text: "If I can't show up in a way that respects both of us." }
             ]
         },
